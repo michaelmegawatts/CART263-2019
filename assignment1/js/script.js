@@ -31,7 +31,8 @@ let food = {
   vx: 0,
   vy: 0,
   size: 64,
-  color: '#55cccc'
+  color: '#55cccc',
+  maxSpeed: 64,
 }
 
 // preload()
@@ -118,10 +119,16 @@ function displayAvatar() {
 }
 
 function updateFood(){
+  // update food position randomly to stay on screen
   food.vx += .007;
   food.vy += .01;
-  food.x = map(noise(food.vx),0,1,-100,width+250);
-  food.y = map(noise(food.vy),0,1,-200,height+250);
+
+  //food.x = map(noise(food.vx),0,1,-100,windowWidth);
+  //food.y = map(noise(food.vy),0,1,-200,windowHeight);
+
+  // Constrain y position to be on screen
+  food.x = constrain(food.x,0,windowWidth-food.size);
+  food.y = constrain(food.y,0,windowHeight-food.size);
 }
 
 // displayFood()
@@ -143,5 +150,6 @@ function displayFood() {
 function positionFood() {
   food.x = random(0,width);
   food.y = random(0,height);
-
+  food.vx = random(0,food.maxSpeed);
+  food.vy = random(0,food.maxSpeed);
 }
