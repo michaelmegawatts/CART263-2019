@@ -25,7 +25,7 @@ let avatar = {
 }
 
 // Constants defining key quantities
-const FOOD_MAX_SPEED = 64;
+const FOOD_MAX_SPEED = 20;
 
 // Food is an object defined by its properties
 let food = {
@@ -36,6 +36,8 @@ let food = {
   size: 64,
   color: '#55cccc',
   maxSpeed: 64,
+  tx:0,
+  ty:0
 }
 
 // preload()
@@ -129,8 +131,8 @@ function updateFood(){
   food.y += food.vy;
 
   // Constrain y position to be on screen
-  food.x = constrain(food.x,0,windowWidth-food.size);
-  food.y = constrain(food.y,0,windowHeight-food.size);
+  food.x = constrain(food.x,food.size,windowWidth-food.size);
+  food.y = constrain(food.y,food.size,windowHeight-food.size);
 }
 
 // displayFood()
@@ -150,14 +152,17 @@ function displayFood() {
 //
 // Set the food's position properties to random numbers within the canvas dimensions
 function positionFood() {
-  food.x = random(0,width);
-  food.y = random(0,height);
+  food.x = random(0,windowWidth);
+  food.y = random(0,windowHeight);
 }
 
 // Set the food's speed with a random quality based on the speed
 function foodSpeed(){
-  food.vx = map(noise(food.x),0,1,-FOOD_MAX_SPEED,FOOD_MAX_SPEED);
-  food.vy = map(noise(food.y),0,1,-FOOD_MAX_SPEED,FOOD_MAX_SPEED);
+  food.vx = map(noise(food.tx),0,1,-FOOD_MAX_SPEED,FOOD_MAX_SPEED);
+  food.vy = map(noise(food.ty),0,1,-FOOD_MAX_SPEED,FOOD_MAX_SPEED);
+  food.tx+=0.1;
+  food.ty+=0.5;
+  console.log(food.vx);
 }
 
 setInterval(foodSpeed, 500);
