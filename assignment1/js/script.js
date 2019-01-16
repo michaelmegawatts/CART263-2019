@@ -3,7 +3,7 @@
 /*****************
 
 Circle Eater
-Pippin Barr
+Pippin Barr interpreted by Michael Watts
 
 A simple game in which the player controls a shrinking circle with their mouse and tries
 to overlap another circle (food) in order to grow bigger.
@@ -23,6 +23,9 @@ let avatar = {
   active: true,
   color: '#cccc55'
 }
+
+// Constants defining key quantities
+const FOOD_MAX_SPEED = 64;
 
 // Food is an object defined by its properties
 let food = {
@@ -118,13 +121,12 @@ function displayAvatar() {
   pop();
 }
 
+// Update Food
+//
+// update food position randomly to stay on screen
 function updateFood(){
-  // update food position randomly to stay on screen
-  food.vx += .007;
-  food.vy += .01;
-
-  //food.x = map(noise(food.vx),0,1,-100,windowWidth);
-  //food.y = map(noise(food.vy),0,1,-200,windowHeight);
+  food.x += food.vx;
+  food.y += food.vy;
 
   // Constrain y position to be on screen
   food.x = constrain(food.x,0,windowWidth-food.size);
@@ -150,6 +152,12 @@ function displayFood() {
 function positionFood() {
   food.x = random(0,width);
   food.y = random(0,height);
-  food.vx = random(0,food.maxSpeed);
-  food.vy = random(0,food.maxSpeed);
 }
+
+// Set the food's speed with a random quality based on the speed
+function foodSpeed(){
+  food.vx = map(noise(food.x),0,1,-FOOD_MAX_SPEED,FOOD_MAX_SPEED);
+  food.vy = map(noise(food.y),0,1,-FOOD_MAX_SPEED,FOOD_MAX_SPEED);
+}
+
+setInterval(foodSpeed, 500);
