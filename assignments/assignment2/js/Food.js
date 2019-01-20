@@ -20,8 +20,8 @@ class Food extends Agent {
   }
 
   updatePosition(){
-    this.vx = random();
-    food.vy = random() ;
+    this.vx = constrain(this.x,this.size,windowWidth-this.size);
+    this.vy = constrain(this.y,this.size,windowHeight-this.size);
   }
 
   // reset()
