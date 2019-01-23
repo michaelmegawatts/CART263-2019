@@ -15,32 +15,43 @@ class Food extends Agent {
     this.minSize = minSize;
     this.maxSize = maxSize;
     this.maxSpeed = maxSpeed;
-    this.vx = random(maxSpeed);
-    this.vy = random(maxSpeed);
+    this.vx = random(this.maxSpeed);
+    this.vy = random(this.maxSpeed);
     this.tx = 0;
     this.ty = 0;
   }
 
-  updateFoodPosition(){
-    this.vx = constrain(this.x,this.size,windowWidth-this.size);
-    this.vy = constrain(this.y,this.size,windowHeight-this.size);
-  }
+  // update food position randomly to stay on screen
+  update(){
+      // console.log(frameCount);
+    this.x += this.vx;
+    this.y += this.vy;
 
-  updateFoodSpeed(){
-    this.vx = map(noise(this.tx),0,1,-FOOD_MAX_SPEED,FOOD_MAX_SPEED);
-    this.vy = map(noise(this.ty),0,1,-FOOD_MAX_SPEED,FOOD_MAX_SPEED);
-    this.tx+=0.1;
-    this.ty+=0.5;
-    console.log(this.tx);
-}
+    // Constrain food to be on screen, changes the food's velocity randomly
+    // using frameCount and based on its speed
+    this.x = constrain(this.x,this.size,windowWidth-this.size);
+    this.y = constrain(this.y,this.size,windowHeight-this.size);
+
+    if(frameCount%200 == 0){
+      this.vx = map(noise(this.tx),0,1,-FOOD_MAX_SPEED,FOOD_MAX_SPEED);
+      this.vy = map(noise(this.ty),0,1,-FOOD_MAX_SPEED,FOOD_MAX_SPEED);
+      this.tx+=0.1;
+      this.ty+=0.5;
+      console.log(this.tx);
+    }
+  }
 
   // reset()
   //
   // Set position to a random location on the canvas
   // Set the size to a random size within the limits
+  // Set the velocity to random velocity
   reset() {
     this.x = random(0,width);
     this.y = random(0,height);
+    this.vx = random(this.vx);
+    this.vy = random(this.vy);
     this.size = random(this.minSize,this.maxSize);
   }
+
 }
