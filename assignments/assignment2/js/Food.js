@@ -31,7 +31,7 @@ class Food extends Agent {
     this.vy = map(noise(this.ty),0,1,-FOOD_MAX_SPEED,FOOD_MAX_SPEED);
     this.tx+=0.1;
     this.ty+=0.5;
-  console.log(this.tx);
+    console.log(this.tx);
 }
 
   // reset()
