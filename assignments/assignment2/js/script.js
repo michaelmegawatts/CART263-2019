@@ -23,8 +23,6 @@ const FOOD_MAX_SPEED = 10;
 let avatar;
 let food = [];
 
-
-
 // preload()
 //
 // Not needed
