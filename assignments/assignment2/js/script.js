@@ -42,7 +42,7 @@ function setup() {
   createCanvas(windowWidth,windowHeight);
   avatar = new Avatar(mouseX,mouseY,AVATAR_MAX_SIZE,AVATAR_SIZE_LOSS_PER_FRAME)
 
-  for (let i = 0; i<15; i++){
+  for (let i = 0; i<7; i++){
     food.push (new Food(random(0,windowWidth),random(0,windowHeight),FOOD_MIN_SIZE,FOOD_MAX_SIZE));
   }
 
@@ -62,7 +62,7 @@ function draw() {
 
   avatar.update();
 
-  for (let i = 0; i<15; i++) {
+  for (let i = 0; i<7; i++) {
     food[i].update();
     food[i].display();
     if (avatar.collide(food[i])) {
