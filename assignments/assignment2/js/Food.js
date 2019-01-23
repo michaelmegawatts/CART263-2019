@@ -17,8 +17,8 @@ class Food extends Agent {
     this.maxSpeed = maxSpeed;
     this.vx = random(this.maxSpeed);
     this.vy = random(this.maxSpeed);
-    this.tx = 0;
-    this.ty = 0;
+    this.tx = random(0,25);
+    this.ty = random(0,15);
   }
 
   // update food position randomly to stay on screen
@@ -29,14 +29,21 @@ class Food extends Agent {
 
     // Constrain food to be on screen, changes the food's velocity randomly
     // using frameCount and based on its speed
-    this.x = constrain(this.x,this.size,windowWidth-this.size);
-    this.y = constrain(this.y,this.size,windowHeight-this.size);
+    // this.x = constrain(this.x,this.size,windowWidth-this.size);
+    // this.y = constrain(this.y,this.size,windowHeight-this.size);
+    if (this.x < this.size || this.x > windowWidth-this.size) {
+      this.vx = this.vx *-1;
+    }
+
+    if (this.y < this.size || this.y > windowHeight-this.size) {
+      this.vy = this.vy *-1;
+    }
 
     if(frameCount%200 == 0){
       this.vx = map(noise(this.tx),0,1,-FOOD_MAX_SPEED,FOOD_MAX_SPEED);
       this.vy = map(noise(this.ty),0,1,-FOOD_MAX_SPEED,FOOD_MAX_SPEED);
       this.tx+=0.1;
-      this.ty+=0.5;
+      this.ty+=0.07;
       console.log(this.tx);
     }
   }
