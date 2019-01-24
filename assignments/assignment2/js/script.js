@@ -31,7 +31,6 @@ function preload() {
 
 }
 
-
 // setup()
 //
 // Create the canvas, avatar, and food, disable the cursor
@@ -46,7 +45,6 @@ function setup() {
 
   noCursor();
 }
-
 
 // draw()
 //
