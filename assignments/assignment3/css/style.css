@@ -29,3 +29,9 @@ div {
   text-decoration: underline;
   color: red
 }
+
+.found {
+  background-color: transparent;
+  text-decoration: highlight;
+  color: #00ffff;  
+}
