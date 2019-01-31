@@ -12,6 +12,12 @@ body {
   margin-top: 100px;
 }
 
+#secret-count {
+  margin: 0px;
+  top 20: 10px;
+  color: #FF69B4;
+}
+
 div {
   margin-top: 10px;
 }
