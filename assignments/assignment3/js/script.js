@@ -43,7 +43,13 @@ function spanClicked() {
 
 
 function spanMouseover() {
-  $this.mouseover('found');
+  $(this).mouseover('found');
+}
+
+function spanOff() {
+  $("mouseover").click(function(){
+    $("this").off("click");
+  });
 }
 // update()
 //

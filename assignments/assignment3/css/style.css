@@ -13,7 +13,7 @@ body {
 }
 
 div {
-  margin-top: 1em;
+  margin-top: 10px;
 }
 
 /* Redacted elements need to be blanked out */
@@ -33,5 +33,5 @@ div {
 .found {
   background-color: transparent;
   text-decoration: highlight;
-  color: #00ffff;  
+  color: #00ffff;
 }
