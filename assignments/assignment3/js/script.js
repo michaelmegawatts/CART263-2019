@@ -11,7 +11,7 @@ secrets become revealed!
 
 ******************/
 
-// A place to store the jQuery selection of all spans
+// A place to store the jQuery selection of all spans, and variable for score
 let $spans;
 let $found;
 let $secrets;
@@ -44,13 +44,14 @@ function spanClicked() {
   $(this).addClass('redacted');
 }
 
-
+// When mouse hovers over secret word, score increases and word is highlighted
 function spanMouseover() {
   $(this).addClass('found');
   secretScore += 1;
   $('#secret-count').text(secretScore);
 }
 
+// redact words when clicked
 function spanOff() {
   $("mouseover").click(function(){
     $("this").off("click");
