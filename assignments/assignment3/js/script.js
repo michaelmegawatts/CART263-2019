@@ -44,19 +44,6 @@ function spanClicked() {
   $(this).addClass('redacted');
 }
 
-// When mouse hovers over secret word, score increases and word is highlighted
-function spanMouseover() {
-  $(this).addClass('found');
-  secretScore += 1;
-  $('#secret-count').text(secretScore);
-}
-
-// redact words when clicked
-function spanOff() {
-  $("mouseover").click(function(){
-    $("this").off("click");
-  });
-}
 // update()
 //
 // Update is called every 500 milliseconds and it updates all the spans on the page
@@ -64,7 +51,6 @@ function spanOff() {
 // elements in the selection
 function update() {
   $spans.each(updateSpan);
-
 }
 
 // updateSpan()
@@ -79,6 +65,23 @@ function updateSpan() {
     $(this).addClass('revealed');
   }
 }
+
+// When mouse hovers over secret word, score increases and word is highlighted
+function spanMouseover() {
+  $(this).addClass('found');
+  $('.found').off('mouseover');
+
+  secretScore += 1;
+  $('#secret-count').text(secretScore);
+}
+
+// redact words when clicked
+function spanOff() {
+  $("mouseover").click(function(){
+    $("this").off("click");
+  });
+}
+
 
 // A version using anonymous functions:
 
