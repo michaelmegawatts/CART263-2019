@@ -6,6 +6,11 @@ Michael Watts
 Title: SisyBauhausPhus
 
 **********************************************/
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+</style>
+
 * {
   margin: 0;
   padding: 0;
@@ -16,16 +21,21 @@ html, body {
   height: 100%;
 }
 #s1 {
-  background: url(../images/building.jpg) no-repeat fixed center center;
+  background: url(../assets/images/building.jpg) no-repeat fixed;
+  background-size: cover;
   min-width: 100%;
-	width:auto;
+	width: auto;
 	min-height: 100%;
 	height: auto;
 	position:relative;
 }
 
-#s1 #building{
-  width: 100%;
-	height: auto;
-  display: none;
+#instructions {
+  color: red;
+  background-color: transparent;
+	font-family: 'Righteous';
+	font-size: 30px;
+	position: absolute;
+	top: 10%;
+	left: 10px;
 }
