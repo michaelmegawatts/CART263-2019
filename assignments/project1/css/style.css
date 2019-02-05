@@ -1,5 +1,31 @@
 /*********************************************
+CART 263-2019
+Project 1
+Michael Watts
 
-This is the style file for this project.
+Title: SisyBauhausPhus
 
 **********************************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+#s1 {
+  background: url(../images/building.jpg) no-repeat fixed center center;
+  min-width: 100%;
+	width:auto;
+	min-height: 100%;
+	height: auto;
+	position:relative;
+}
+
+#s1 #building{
+  width: 100%;
+	height: auto;
+  display: none;
+}
