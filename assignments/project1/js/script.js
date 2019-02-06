@@ -12,14 +12,14 @@ of legendary Bauhaus. There is no end to design, so the user simply drags the
 iconic Bauhaus shapes and makes some nice graphic art.
 
 credits:
-musice - Mein Berlin (Aus "An und aus")
+music - Mein Berlin (Aus "An und aus")
 - Iwan Frank and Die Lieder von Walter Kollo in Originalaufnahmen
 
 code - parts of Beach Party by Pippin Barr
 
 // ******************/
 
-// Load the Berlin music into a variable
+// Load the Berlin music into a variable for atmosphere
 let music = new Audio('assets/sounds/Berlin.mp3');
 
 $(document).ready(function() {
