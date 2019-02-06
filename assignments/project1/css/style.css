@@ -40,31 +40,31 @@ html, body {
 	right: 10px;
 }
 
-#bauhaus {
+.bauhaus {
   position: absolute;
 	top: 1%;
 	left: 10px;
 }
 
-#circle {
+.circle {
   position: absolute;
 	top: 20%;
 	left: 10px;
 }
 
-#triangle {
+.triangle {
   position: absolute;
 	top: 40%;
 	left: 10px;
 }
 
-#square {
+.square {
   position: absolute;
 	top: 60%;
 	left: 10px;
 }
 
-#ex {
+.ex {
   position: absolute;
 	top: 80%;
 	left: 10px;
