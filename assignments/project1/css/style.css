@@ -40,6 +40,12 @@ html, body {
 	right: 10px;
 }
 
+.instructions {
+  position: absolute;
+  bottom: 10%;
+  right: 10px;
+}
+
 .bauhaus {
   position: absolute;
 	top: 1%;

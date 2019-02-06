@@ -20,7 +20,15 @@ $(document).ready(function() {
   // Pause the music at the beginning
   music.pause();
 
+  $( document ).click(function() {
+    $( ".instructions" ).effect( "bounce", "slow" );
+  });
 
+  $( document ).click(function() {
+  $( ".instructions" ).fadeOut( "slow", function() {
+    // Animation complete.
+  });
+});
 
   // Handle when user mouses over game objects to drag it and make it draggable
   // Create "masters" of each game object to make a coper after each time one is dragged
