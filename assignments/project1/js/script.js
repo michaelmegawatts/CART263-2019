@@ -41,6 +41,11 @@ $(document).ready(function() {
         }
         if ($(this).attr('class').indexOf('square') != -1) {
           $('#content').append('<div class="master square"><img src="assets/images/square.png" alt=""></div>');
+          // If it's currently paused, we should start it
+          if (music.paused) {
+            music.loop = true;
+            music.play();
+            }
         }
         if ($(this).attr('class').indexOf('ex') != -1) {
           $('#content').append('<div class="master ex"><img src="assets/images/ex.png" alt=""></div>');
