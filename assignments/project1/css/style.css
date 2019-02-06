@@ -3,7 +3,7 @@ CART 263-2019
 Project 1
 Michael Watts
 
-Title: SisyBauhausPhus
+Title: BAUHAUS your life
 
 **********************************************/
 
@@ -30,40 +30,40 @@ html, body {
 }
 
 #title {
-  color: red;
+  color: black;
   background-color: transparent;
 	font-family: 'Baumans';
-	font-size: 40px;
+	font-size: 60px;
 	position: absolute;
-	top: 3%;
+	top: 1%;
+	right: 10px;
+}
+
+#bauhaus {
+  position: absolute;
+	top: 1%;
 	left: 10px;
 }
 
 #circle {
   position: absolute;
-	top: 80%;
-	left: 200px;
+	top: 20%;
+	left: 10px;
 }
 
 #triangle {
   position: absolute;
-	top: 80%;
-	left: 350px;
+	top: 40%;
+	left: 10px;
 }
 
 #square {
   position: absolute;
-	top: 80%;
-	left: 525px;
+	top: 60%;
+	left: 10px;
 }
 
 #ex {
-  position: absolute;
-	top: 80%;
-	left: 675px;
-}
-
-#bauhaus {
   position: absolute;
 	top: 80%;
 	left: 10px;
