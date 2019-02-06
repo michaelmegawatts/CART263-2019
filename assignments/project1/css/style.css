@@ -19,7 +19,8 @@ Title: BAUHAUS your life
 html, body {
   height: 100%;
 }
-#s1 {
+
+#content {
   background: url("../assets/images/building.jpg") no-repeat fixed;
   background-size: cover;
   min-width: 100%;
