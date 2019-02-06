@@ -7,9 +7,8 @@ Title: SisyBauhausPhus
 
 **********************************************/
 
-<style>
-@import url('https://fonts.googleapis.com/css?family=Righteous');
-</style>
+@import url('https://fonts.googleapis.com/css?family=Baumans');
+
 
 * {
   margin: 0;
@@ -21,7 +20,7 @@ html, body {
   height: 100%;
 }
 #s1 {
-  background: url(../assets/images/building.jpg) no-repeat fixed;
+  background: url("../assets/images/building.jpg") no-repeat fixed;
   background-size: cover;
   min-width: 100%;
 	width: auto;
@@ -30,12 +29,42 @@ html, body {
 	position:relative;
 }
 
-#instructions {
+#title {
   color: red;
   background-color: transparent;
-	font-family: 'Righteous';
-	font-size: 30px;
+	font-family: 'Baumans';
+	font-size: 40px;
 	position: absolute;
-	top: 10%;
+	top: 3%;
+	left: 10px;
+}
+
+#circle {
+  position: absolute;
+	top: 80%;
+	left: 200px;
+}
+
+#triangle {
+  position: absolute;
+	top: 80%;
+	left: 350px;
+}
+
+#square {
+  position: absolute;
+	top: 80%;
+	left: 525px;
+}
+
+#ex {
+  position: absolute;
+	top: 80%;
+	left: 675px;
+}
+
+#bauhaus {
+  position: absolute;
+	top: 80%;
 	left: 10px;
 }
