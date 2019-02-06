@@ -1,15 +1,14 @@
 /*********************************************
 CART 263-2019
 Project 1
-Michael Watts
-
 Title: BAUHAUS your life
+Michael Watts
 
 **********************************************/
 
 @import url('https://fonts.googleapis.com/css?family=Baumans');
 
-
+/* Set up for window and image that will be the canvas of the experience */
 * {
   margin: 0;
   padding: 0;
@@ -30,6 +29,7 @@ html, body {
 	position:relative;
 }
 
+/* Sets position and characteristics of title, instruction dancer and shapes */
 #title {
   color: black;
   background-color: transparent;

@@ -4,33 +4,45 @@
 
 CART 263-2019
 Project 1
+Title: BAUHAUS your life
 Michael Watts
 
-Title: BAUHAUS your life
+"BAUHAUS your life" is an endless collage experience to celebrate the 100th anniversary
+of legendary Bauhaus. There is no end to design, so the user simply drags the
+iconic Bauhaus shapes and makes some nice graphic art.
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
+credits:
+musice - Mein Berlin (Aus "An und aus")
+- Iwan Frank and Die Lieder von Walter Kollo in Originalaufnahmen
+
+code - parts of Beach Party by Pippin Barr
 
 // ******************/
+
 // Load the Berlin music into a variable
 let music = new Audio('assets/sounds/Berlin.mp3');
 
 $(document).ready(function() {
 
-  // Pause the music at the beginning
+  // Pause the music at the beginning. It will start when user drags red square, surprise!
   music.pause();
 
+  // Effect for instruction dancer bounce when clicked
   $( document ).click(function() {
     $( ".instructions" ).effect( "bounce", "slow" );
   });
-
+  // Effect for instruction dancer to magically fade away after bouncing
   $( document ).click(function() {
-  $( ".instructions" ).fadeOut( "slow", function() {
-    // Animation complete.
+    $( ".instructions" ).fadeOut( "slow", function() {
+      // Animation complete.
+    });
+    // Extra effect for title to highlight whenever user clicks anytime
+    $( document ).click(function() {
+      $( "#title" ).toggle( "highlight" );
+    });
   });
-});
 
-  // Handle when user mouses over game objects to drag it and make it draggable
+  // Handle when user mouses over game shapes to drag it and make it draggable
   // Create "masters" of each game object to make a coper after each time one is dragged
   $('#content').on('mouseover', '.master', function () {
     $(this).draggable({
@@ -53,12 +65,12 @@ $(document).ready(function() {
           if (music.paused) {
             music.loop = true;
             music.play();
-            }
+          }
         }
         if ($(this).attr('class').indexOf('ex') != -1) {
           $('#content').append('<div class="master ex"><img src="assets/images/ex.png" alt=""></div>');
         }
-        // Now we can safely make the one we're dragging not the master
+        // Remove master class from the dragged shape
         $(this).removeClass('master');
 
       }
