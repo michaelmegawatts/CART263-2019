@@ -113,6 +113,14 @@ $(document).ready(function() {
           }
         }
 
+        // Create a random animation for all the exes to fade away
+        $(this).on("click", function () {
+          if ($(this).hasClass("ex")) {
+            $( ".ex:not(.master)" ).effect( "puff");
+          }
+        })
+
+
       }
 
     });
