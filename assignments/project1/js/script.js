@@ -19,7 +19,10 @@ music - Mein Berlin (Aus "An und aus")
 // ******************/
 
 // Load the Berlin music into a variable for atmosphere
-let music = new Audio('assets/sounds/Berlin.mp3');
+const music = new Audio('assets/sounds/Berlin.mp3');
+let bauhausDrop = Math.floor(Math.random() * 10) +1;
+let bauhausPlus = 0;
+console.log(bauhausDrop);
 
 $(document).ready(function() {
 
@@ -78,18 +81,27 @@ $(document).ready(function() {
         // Remove master class from the dragged shape
         $(this).removeClass('master');
         console.log($(this));
-
-        // Set effect from select menu value
-        //$( document ).click(function() { console.log("dots");
-
-        //});
-
       },
-      stop: function () {$(this).on("click", function () {
-        if ($(this).hasClass("circle")) {
-        $( ".circle:not(.master)" ).effect( "explode"); }
-      })
+      stop: function () {
+        $(this).on("click", function () {
+          if ($(this).hasClass("circle")) {
+            $( ".circle:not(.master)" ).effect( "explode");
+          }
+        })
+
+        if ($(this).hasClass("bauhaus")) {
+          bauhausPlus += 1
+          if (bauhausDrop === bauhausPlus) {
+            $( ".bauhaus:not(.master)" ).animate({ "top": "+=600px" }, "slow" );
+            bauhausPlus = 0;
+            bauhausDrop = Math.floor(Math.random() * 10) +1;
+          }
+        }
+
+
+
       }
+
     });
   });
 });

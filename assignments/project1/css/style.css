@@ -17,6 +17,7 @@ Michael Watts
 
 html, body {
   height: 100%;
+  overflow: hidden;
 }
 
 #content {
@@ -50,6 +51,7 @@ html, body {
   position: absolute;
 	top: 1%;
 	left: 10px;
+
 }
 
 .circle {
