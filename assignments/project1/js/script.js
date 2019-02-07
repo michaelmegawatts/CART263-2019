@@ -18,11 +18,14 @@ music - Mein Berlin (Aus "An und aus")
 
 // ******************/
 
-// Load the Berlin music into a variable for atmosphere
+// Load the Berlin music into a constant for atmosphere
+// Load the bauhaus image into a variable to animate later
 const music = new Audio('assets/sounds/Berlin.mp3');
 let bauhausDrop = Math.floor(Math.random() * 10) +1;
 let bauhausPlus = 0;
-console.log(bauhausDrop);
+
+let triangleDrop = Math.floor(Math.random() * 15) +1;
+let trianglePlus = 0;
 
 $(document).ready(function() {
 
@@ -43,7 +46,6 @@ $(document).ready(function() {
     $( document ).click(function() {
       $( "#title" ).toggle( "highlight" );
     });
-
   });
 
 
@@ -82,6 +84,8 @@ $(document).ready(function() {
         $(this).removeClass('master');
         console.log($(this));
       },
+      // Remove the master class of the dragged circle so user can click on circle and they will explode
+      // leaving the master in place
       stop: function () {
         $(this).on("click", function () {
           if ($(this).hasClass("circle")) {
@@ -89,16 +93,25 @@ $(document).ready(function() {
           }
         })
 
+        // Create a random animation for all the bauhauses to fall off screen
         if ($(this).hasClass("bauhaus")) {
           bauhausPlus += 1
           if (bauhausDrop === bauhausPlus) {
-            $( ".bauhaus:not(.master)" ).animate({ "top": "+=600px" }, "slow" );
+            $( ".bauhaus:not(.master)" ).animate({ "top": "+=1200px" }, "slow" );
             bauhausPlus = 0;
             bauhausDrop = Math.floor(Math.random() * 10) +1;
           }
         }
 
-
+        // Create a random animation for all the triangles to ascend up to the sky
+        if ($(this).hasClass("triangle")) {
+          trianglePlus += 1
+          if (triangleDrop === trianglePlus) {
+            $( ".triangle:not(.master)" ).animate({ "top": "-=1200px" }, "slow" );
+            trianglePlus = 0;
+            triangleDrop = Math.floor(Math.random() * 15) +1;
+          }
+        }
 
       }
 
