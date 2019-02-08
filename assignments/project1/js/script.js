@@ -50,7 +50,6 @@ $(document).ready(function() {
     });
   });
 
-
   // Handle when user mouses over game shapes to drag it and make it draggable
   // Create "masters" of each game object to make a coper after each time one is dragged
   // code - parts of Beach Party by Pippin Barr but altered code
@@ -63,11 +62,9 @@ $(document).ready(function() {
         if ($(this).hasClass("bauhaus")) {
           $('#content').append('<div class="master bauhaus"><img src="assets/images/bauhaus.png" alt=""></div>');
         }
-
         if ($(this).hasClass("circle")) {
           $('#content').append('<div class="master circle"><img src="assets/images/circle.png" alt=""></div>');
         }
-
         if ($(this).hasClass("triangle")) {
           $('#content').append('<div class="master triangle"><img src="assets/images/triangle.png" alt=""></div>');
         }
@@ -93,9 +90,7 @@ $(document).ready(function() {
           if ($(this).hasClass("circle")) {
             $( ".circle:not(.master)" ).effect( "explode");
           }
-          $(".circle").reset();
         })
-
         // Create a random animation for all the bauhauses to fall off screen
         if ($(this).hasClass("bauhaus")) {
           bauhausPlus += 1
@@ -105,7 +100,6 @@ $(document).ready(function() {
             bauhausDrop = Math.floor(Math.random() * 20) +1;
           }
         }
-
         // Create a random animation for all the triangles to ascend up to the sky
         if ($(this).hasClass("triangle")) {
           trianglePlus += 1
@@ -115,17 +109,13 @@ $(document).ready(function() {
             triangleDrop = Math.floor(Math.random() * 20) +1;
           }
         }
-
         // Create a random animation for all the exes to fade away
         $(this).on("click", function () {
           if ($(this).hasClass("ex")) {
             $( ".ex:not(.master)" ).effect( "puff");
           }
         })
-
-
       }
-
     });
   });
 });
