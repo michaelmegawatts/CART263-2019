@@ -21,6 +21,7 @@ music - Mein Berlin (Aus "An und aus")
 // Load the Berlin music into a constant for atmosphere
 // Load the bauhaus image into a variable to animate later
 const music = new Audio('assets/sounds/Berlin.mp3');
+const bell = new Audio('assets/sounds/bell.mp3');
 let bauhausDrop = Math.floor(Math.random() * 10) +1;
 let bauhausPlus = 0;
 
@@ -30,12 +31,13 @@ let trianglePlus = 0;
 $(document).ready(function() {
 
   // Pause the music at the beginning. It will start when user drags red square, surprise!
-  // code - parts of Beach Party by Pippin Barr
+  // code - parts of Beach Party by Pippin Barr but altered code
   music.pause();
 
   // Effect for instruction dancer bounce when clicked
   $( ".instructions" ).click(function() {
     $( ".instructions" ).effect( "bounce", "slow" );
+    bell.play();
   });
   // Effect for instruction dancer to magically fade away after bouncing
   $( ".instructions" ).click(function() {
@@ -51,7 +53,7 @@ $(document).ready(function() {
 
   // Handle when user mouses over game shapes to drag it and make it draggable
   // Create "masters" of each game object to make a coper after each time one is dragged
-  // code - parts of Beach Party by Pippin Barr
+  // code - parts of Beach Party by Pippin Barr but altered code
   $('#content').on('mouseover', '.master', function () {
     $(this).draggable({
       // The start property takes a function that is called when dragging starts
