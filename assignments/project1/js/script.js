@@ -18,10 +18,11 @@ music - Mein Berlin (Aus "An und aus")
 
 // ******************/
 
-// Load the Berlin music into a constant for atmosphere
-// Load the bauhaus image into a variable to animate later
+// Load the Berlin music into a constant for atmosphere, and load bell sound
+// Load the bauhaus image and triangle into a variable to animate later
 const music = new Audio('assets/sounds/Berlin.mp3');
 const bell = new Audio('assets/sounds/bell.mp3');
+
 let bauhausDrop = Math.floor(Math.random() * 10) +1;
 let bauhausPlus = 0;
 
@@ -34,7 +35,7 @@ $(document).ready(function() {
   // code - parts of Beach Party by Pippin Barr but altered code
   music.pause();
 
-  // Effect for instruction dancer bounce when clicked
+  // Effect for instruction dancer bounce when clicked, and bell to play
   $( ".instructions" ).click(function() {
     $( ".instructions" ).effect( "bounce", "slow" );
     bell.play();
@@ -42,7 +43,6 @@ $(document).ready(function() {
   // Effect for instruction dancer to magically fade away after bouncing
   $( ".instructions" ).click(function() {
     $( ".instructions" ).fadeOut( "slow", function() {
-      // Animation complete.
     });
     // Extra effect for title to highlight whenever user clicks anytime
     $( document ).click(function() {
@@ -93,6 +93,7 @@ $(document).ready(function() {
           if ($(this).hasClass("circle")) {
             $( ".circle:not(.master)" ).effect( "explode");
           }
+          $(".circle").reset();
         })
 
         // Create a random animation for all the bauhauses to fall off screen
@@ -101,7 +102,7 @@ $(document).ready(function() {
           if (bauhausDrop === bauhausPlus) {
             $( ".bauhaus:not(.master)" ).animate({ "top": "+=1200px" }, "slow" );
             bauhausPlus = 0;
-            bauhausDrop = Math.floor(Math.random() * 10) +1;
+            bauhausDrop = Math.floor(Math.random() * 20) +1;
           }
         }
 
@@ -111,7 +112,7 @@ $(document).ready(function() {
           if (triangleDrop === trianglePlus) {
             $( ".triangle:not(.master)" ).animate({ "top": "-=1200px" }, "slow" );
             trianglePlus = 0;
-            triangleDrop = Math.floor(Math.random() * 15) +1;
+            triangleDrop = Math.floor(Math.random() * 20) +1;
           }
         }
 
