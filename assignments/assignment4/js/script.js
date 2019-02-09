@@ -18,9 +18,10 @@ Chewing: https://freesound.org/people/InspectorJ/sounds/412068/
 let buzzSFX = new Audio("assets/sounds/buzz.mp3");
 let crunchSFX = new Audio("assets/sounds/crunch.wav");
 
-// Variable to hold our two key elements
+// Variable to hold our three key elements
 let $mouth;
 let $fly;
+let $goldpoo;
 
 $(document).ready(setup);
 
@@ -33,6 +34,7 @@ function setup() {
     drop: flyDropped
   });
 
+
   // Get the fly element from the page
   $fly = $('#fly');
   // Make it draggable
@@ -41,6 +43,11 @@ function setup() {
   // Start up the buzzing of the fly
   buzzSFX.loop = true;
   buzzSFX.play();
+
+  // Get the goldpoo element from the page
+  $goldpoo = $('#goldpoo');
+  // Make it draggable
+  $goldpoo.draggable();
 }
 
 // flyDropped(event,ui)
@@ -65,6 +72,20 @@ function flyDropped (event,ui) {
   // Use a setInterval to call the chew() function over and over
   setInterval(chew,250);
 }
+
+$( function() {
+  $( "#goldpoo" ).draggable({ revert: true });
+
+  $( function() {
+  $( "#goldpoo , #goldpoo-nonvalid" ).droppable({
+      accept: "#goldpoo",
+      classes: {
+        "ui-droppable-active": "ui-state-active",
+        "ui-droppable-hover": "ui-state-hover"
+      },
+    });
+    });
+} );
 
 // chew()
 //
