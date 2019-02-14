@@ -87,7 +87,6 @@ $( function() {
   }
 });
 
-
 $( "#fly" ).draggable({ revert: "invalid" });
 } );
 
