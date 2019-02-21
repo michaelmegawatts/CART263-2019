@@ -180,6 +180,7 @@ if (annyang) {
     }
   };
 
+
   // Add our commands to annyang
   annyang.addCommands(commands);
 
@@ -234,6 +235,14 @@ function newRound() {
 //
 // Uses ResponsiveVoice to say the specified text backwards!
 function speakAnimal(name) {
+
+  let commands = {
+    'Say it again': function() {
+      $('#' + correctAnimal).reverse();
+
+      reverseAnimal(correctAnimal);
+    }
+  };
   // We create a reverse version of the name by:
   // 1. using .split('') to split the string into an array with each character
   // as a separate element.
