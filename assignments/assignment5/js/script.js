@@ -161,13 +161,31 @@ let animals = [
 // We need to track the correct answer for each round
 let correctAnimal;
 // We also track all the possibly answers (mostly so we can switch their order around)
-let answers = [];
+let answers
+
 
 // How many possible answers there are per round
 const NUM_OPTIONS = 5;
 
 // Get setup!
 $(document).ready(setup);
+if (annyang) {
+  // Let's define our first command. First the text we expect, and then the function it should call
+  let commands = {
+    'I give up': function() {
+      $('#' + correctAnimal).effect('shake');
+      speakAnimal(correctAnimal);
+      // Start a new round
+      setTimeout(newRound,500);
+    }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start();
+}
 
 // setup()
 //
@@ -191,6 +209,8 @@ function startGame() {
 // Generates a set of possible answers randomly from the set of animals
 // and adds buttons for each one. Then chooses the correct answer randomly.
 function newRound() {
+  // Remove all the buttons
+  $('.guess').remove();
   // We empty the answer array for the new round
   answers = [];
   // Loop for each option we'll offter
@@ -244,7 +264,7 @@ function speakAnimal(name) {
 // and adds it to the page.
 function addButton(label) {
   // Create a div with jQuery using HTML
-  let $button = $('<div class="guess"></div>');
+  let $button = $('<div id="' + label + '" class="guess"></div>');
   // Set the text in the div to our label
   $button.text(label);
   // Turn the div into a button using jQuery UI's .button() method
