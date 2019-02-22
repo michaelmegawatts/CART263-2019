@@ -4,8 +4,15 @@ body {
   /* overflow: hidden; */
 }
 
+
 #click-to-begin {
   font-size: 2em;
   font-weight: bold;
-  text-align: center; 
+  text-align: center;
+}
+
+#score-keeper {
+  margin: 0px;
+  top 20: 10px;
+  color: #FF69B4;
 }

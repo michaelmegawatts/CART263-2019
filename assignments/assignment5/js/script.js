@@ -163,6 +163,8 @@ let correctAnimal;
 // We also track all the possibly answers (mostly so we can switch their order around)
 let answers
 
+let scoreKeeper = 0;
+
 
 // How many possible answers there are per round
 const NUM_OPTIONS = 5;
@@ -312,3 +314,19 @@ function addButton(label) {
   // Finally, add the button to the page so we can see it
   $('body').append($button);
 }
+
+function scoreAnswer() {
+  if ('correctAnimal' = ) {
+    scoreKeeper += 1;
+  }
+  else {
+    scoreKeeper = 0;
+  }
+
+  if ('I give up') {
+    scoreKeeper = 0;
+  }
+  //$('.found').off('mouseover');
+
+  $('#score-keeper').text(score-keeper);
+};
