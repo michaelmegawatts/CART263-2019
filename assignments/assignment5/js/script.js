@@ -185,7 +185,7 @@ if (annyang) {
     //receives command and explodes correct answer before starting nex round
     'i think it is *tag':function(tag) {
       console.log(tag);
-      if( correctAnimal ===tag){
+      if( correctAnimal ===tag.toLowerCase()){
         $('#' + correctAnimal).effect('explode');
         setTimeout(newRound,1000);
       }
