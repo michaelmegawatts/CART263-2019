@@ -176,9 +176,28 @@ if (annyang) {
       $('#' + correctAnimal).effect('shake');
       speakAnimal(correctAnimal);
       // Start a new round
-      setTimeout(newRound,500);
+      setTimeout(newRound,1000);
+    },
+
+    'Say it again': function() {
+      speakAnimal(correctAnimal);
+
+    },
+
+
+    'i think it is *tag':function(tag) {
+      console.log(tag);
+      if( correctAnimal ===tag){
+        $('#' + correctAnimal).effect('explode');
+        setTimeout(newRound,1000);
+
+      }
     }
-  };
+  }
+
+
+
+
 
 
   // Add our commands to annyang
@@ -186,7 +205,11 @@ if (annyang) {
 
   // Start listening. You can call this here, or attach this call to an event, button, etc.
   annyang.start();
+
+
 }
+
+
 
 // setup()
 //
@@ -236,13 +259,6 @@ function newRound() {
 // Uses ResponsiveVoice to say the specified text backwards!
 function speakAnimal(name) {
 
-  let commands = {
-    'Say it again': function() {
-      $('#' + correctAnimal).reverse();
-
-      reverseAnimal(correctAnimal);
-    }
-  };
   // We create a reverse version of the name by:
   // 1. using .split('') to split the string into an array with each character
   // as a separate element.
@@ -265,6 +281,7 @@ function speakAnimal(name) {
   // Use ResponsiveVoice to speak the string we generated, with UK English Male voice
   // and the options we just specified.
   responsiveVoice.speak(reverseAnimal,'UK English Male',options);
+
 }
 
 // addButton(label)
