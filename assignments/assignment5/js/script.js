@@ -178,19 +178,16 @@ if (annyang) {
       // Start a new round
       setTimeout(newRound,1000);
     },
-
+    // repeats the animal in question
     'Say it again': function() {
       speakAnimal(correctAnimal);
-
     },
-
-
+    //receives command and explodes correct answer before starting nex round
     'i think it is *tag':function(tag) {
       console.log(tag);
       if( correctAnimal ===tag){
         $('#' + correctAnimal).effect('explode');
         setTimeout(newRound,1000);
-
       }
     }
   }
