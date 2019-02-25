@@ -1,5 +1,60 @@
-/*********************************************
+@import url('https://fonts.googleapis.com/css?family=Teko|Walter+Turncoat');
+* {
+	margin:0;
+	padding: 0;
+	box-sizing:border-box;
+}
 
-This is the style file for this project.
+html, body {
+	height: 100%;
+}
+/* god video background */
+#myVideo {
+	position: fixed;
+	background: black;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	min-width: 100%;
+	min-height: 100%;
+	z-index: -1;
+}
+/* start button */
+.content {
+	position: absolute;
+	font-family: 'Walter Turncoat', cursive;
+	text-align:center;
+	color: white;
+	width: 250px;
+	top: 30%;
+	left: 42%;
+	padding: 0px;
+	z-index: 99;
+	transition: all .3s;
+}
+.content img{
+	width: 100%;
+	height: auto;
+}
 
-**********************************************/
+.content:hover {
+}
+
+#intro {
+	width:100%;
+	height:100%;
+}
+
+#myBtn {
+  left: 0%;
+	height:200px;
+  padding: 0;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+	transition:all 1s;
+}
+
+#myBtn:hover {
+
+}

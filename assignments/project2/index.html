@@ -18,13 +18,41 @@
   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
   crossorigin="anonymous"></script>
-  
+
   <!-- My script(s) -->
   <script src="js/script.js"></script>
 </head>
 
 <body>
-  <!-- HTML would go here if needed. -->
+  <video width="320" height="240" id="myVideo">
+		<source src="assets/video/godbg.mp4" type="video/mp4">
+		<source src="movie.ogg" type="video/ogg">
+	</video>
+
+  <section id="intro">
+    <article class="content">
+			<h1>Hi! I am god</h1>
+			<p>click and we can chit chat</p>
+			<img src="assets/images/godbutton.png" alt="" onclick="myFunction()">
+		</article>
+  </section>
+
+  <script>
+  //init the vars
+  var video = document.getElementById("myVideo");
+  var btn = document.getElementById("myBtn");
+
+  function myFunction(){
+    if(video.paused){
+      video.play();
+      btn.innerHTML = "Pause";
+    } else {
+      video.pause();
+      btn.innerHTML = "Play";
+    }
+  }
+</script>
+
 </body>
 
 </html>
