@@ -161,13 +161,54 @@ let animals = [
 // We need to track the correct answer for each round
 let correctAnimal;
 // We also track all the possibly answers (mostly so we can switch their order around)
-let answers = [];
+let answers
+
+let scoreKeeper = 0;
+
 
 // How many possible answers there are per round
 const NUM_OPTIONS = 5;
 
 // Get setup!
 $(document).ready(setup);
+if (annyang) {
+  // Let's define our first command. First the text we expect, and then the function it should call
+  let commands = {
+    'I give up': function() {
+      $('#' + correctAnimal).effect('shake');
+      speakAnimal(correctAnimal);
+      // Start a new round
+      setTimeout(newRound,1000);
+    },
+    // repeats the animal in question
+    'Say it again': function() {
+      speakAnimal(correctAnimal);
+    },
+    //receives command and explodes correct answer before starting nex round
+    'i think it is *tag':function(tag) {
+      console.log(tag);
+      if( correctAnimal ===tag.toLowerCase()){
+        $('#' + correctAnimal).effect('explode');
+        setTimeout(newRound,1000);
+      }
+    }
+  }
+
+
+
+
+
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start();
+
+
+}
+
+
 
 // setup()
 //
@@ -191,6 +232,8 @@ function startGame() {
 // Generates a set of possible answers randomly from the set of animals
 // and adds buttons for each one. Then chooses the correct answer randomly.
 function newRound() {
+  // Remove all the buttons
+  $('.guess').remove();
   // We empty the answer array for the new round
   answers = [];
   // Loop for each option we'll offter
@@ -214,6 +257,7 @@ function newRound() {
 //
 // Uses ResponsiveVoice to say the specified text backwards!
 function speakAnimal(name) {
+
   // We create a reverse version of the name by:
   // 1. using .split('') to split the string into an array with each character
   // as a separate element.
@@ -236,6 +280,7 @@ function speakAnimal(name) {
   // Use ResponsiveVoice to speak the string we generated, with UK English Male voice
   // and the options we just specified.
   responsiveVoice.speak(reverseAnimal,'UK English Male',options);
+
 }
 
 // addButton(label)
@@ -244,7 +289,7 @@ function speakAnimal(name) {
 // and adds it to the page.
 function addButton(label) {
   // Create a div with jQuery using HTML
-  let $button = $('<div class="guess"></div>');
+  let $button = $('<div id="' + label + '" class="guess"></div>');
   // Set the text in the div to our label
   $button.text(label);
   // Turn the div into a button using jQuery UI's .button() method
@@ -269,3 +314,19 @@ function addButton(label) {
   // Finally, add the button to the page so we can see it
   $('body').append($button);
 }
+
+function scoreAnswer() {
+  if ('correctAnimal' = ) {
+    scoreKeeper += 1;
+  }
+  else {
+    scoreKeeper = 0;
+  }
+
+  if ('I give up') {
+    scoreKeeper = 0;
+  }
+  //$('.found').off('mouseover');
+
+  $('#score-keeper').text(score-keeper);
+};
