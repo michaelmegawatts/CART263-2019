@@ -9,6 +9,33 @@ html, body {
 	height: 100%;
 }
 
+.questionGod {
+	position: fixed;
+	top: 15%;
+	left: 45%;
+	width: 500px
+	height: 500px;
+	padding: 0px;
+	z-index: 99;
+}
+
+#typebutton {
+	position: fixed;
+	top:  160px;
+	left: 49%;
+
+}
+
+#demo {
+	position: fixed;
+	font-family: 'Walter Turncoat', cursive;
+	text-align:center;
+	top: 200px;
+	width: 100px
+	height: 40px;
+}
+
+
 #myVideo {
 	position: fixed;
 	background: black;
@@ -46,16 +73,10 @@ html, body {
 	height:100%;
 }
 
-#myBtn {
-  left: 0%;
-	height:200px;
-  padding: 0;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-	transition:all 1s;
-}
-
-#myBtn:hover {
-
+#responseImage {
+	position: absolute;
+	width: 250px;
+	top: 40%;
+	left: 42%;
+	z-index: 99;
 }
