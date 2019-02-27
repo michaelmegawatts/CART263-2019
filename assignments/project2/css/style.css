@@ -8,7 +8,7 @@
 html, body {
 	height: 100%;
 }
-/* god video background */
+
 #myVideo {
 	position: fixed;
 	background: black;
@@ -39,6 +39,7 @@ html, body {
 
 .content:hover {
 }
+
 
 #intro {
 	width:100%;
