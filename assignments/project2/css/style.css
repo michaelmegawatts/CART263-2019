@@ -11,28 +11,30 @@ html, body {
 
 .questionGod {
 	position: fixed;
-	top: 15%;
-	left: 45%;
-	width: 500px;
-	height: 500px;
+	top: 13%;
+	left: 29%;
+	width: 700px;
+	height: 200px;
 	padding: 0px;
 	z-index: 99;
 }
 
 #typebutton {
-	position: fixed;
-	top:  160px;
-	left: 48%;
+	font-family: 'Walter Turncoat', cursive;
+	font-size: 18px;
+	margin: 20px 170px;
+	padding: 20px;
 
 }
 
 #demo {
-	position: fixed;
 	font-family: 'Walter Turncoat', cursive;
+	font-size: 40px;
 	text-align:center;
-	top: 200px;
-	width: 100px
-	height: 40px;
+	margin: 10px 80px;
+	padding: 20px;
+	width: 500px;
+
 }
 
 
@@ -51,16 +53,17 @@ html, body {
 	position: absolute;
 	font-family: 'Walter Turncoat', cursive;
 	text-align:center;
+	font-size: 45px;
 	text-decoration-color: black;
-	width: 250px;
-	top: 30%;
-	left: 42%;
+	width: 550px;
+	top: 10%;
+	left: 35%;
 	padding: 0px;
 	z-index: 99;
 	transition: all .3s;
 }
 .content img{
-	width: 100%;
+	width: 60%;
 	height: auto;
 }
 

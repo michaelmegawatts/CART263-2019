@@ -2,7 +2,7 @@
 
 /*****************
 
-Title of Project
+Title of Project: Conversation with Gawd
 Michael Watts
 
 This is a template. You must fill in the title,
@@ -41,7 +41,7 @@ $(document).ready(function() {
   let i = 0;
   let currentQuestion = 0;
   let txt = questions[0];
-  let speed = 50;
+  let speed = 100;
   //init the vars
   let video = document.getElementById("myVideo");
   let btn = document.getElementById("intro");
@@ -105,7 +105,6 @@ $(document).ready(function() {
     document.getElementById("demo").innerHTML ="";
     typeWriter();
   }
-
 
 
   // set up for annyang
