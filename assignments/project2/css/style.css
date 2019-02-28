@@ -22,7 +22,7 @@ html, body {
 #typebutton {
 	position: fixed;
 	top:  160px;
-	left: 49%;
+	left: 48%;
 
 }
 
@@ -51,7 +51,7 @@ html, body {
 	position: absolute;
 	font-family: 'Walter Turncoat', cursive;
 	text-align:center;
-	color: white;
+	text-decoration-color: black;
 	width: 250px;
 	top: 30%;
 	left: 42%;
