@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Teko|Walter+Turncoat');
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P|VT323');
 * {
 	margin:0;
 	padding: 0;
@@ -20,23 +20,21 @@ html, body {
 }
 
 #typebutton {
-	font-family: 'Walter Turncoat', cursive;
-	font-size: 18px;
+	font-family: 'Press Start 2P', cursive;
+	font-size: 15px;
 	margin: 20px 170px;
 	padding: 20px;
-
 }
 
 #demo {
-	font-family: 'Walter Turncoat', cursive;
+	font-family: 'VT323', cursive;
 	font-size: 40px;
+	color: #ffff00;
 	text-align:center;
 	margin: 10px 80px;
 	padding: 20px;
 	width: 500px;
-
 }
-
 
 #myVideo {
 	position: fixed;
@@ -51,12 +49,12 @@ html, body {
 /* start button */
 .content {
 	position: absolute;
-	font-family: 'Walter Turncoat', cursive;
+	font-family: 'Press Start 2P', cursive;
+	color: 	#ffff00;
 	text-align:center;
-	font-size: 45px;
-	text-decoration-color: black;
+	font-size: 30px;
 	width: 550px;
-	top: 10%;
+	top: 18%;
 	left: 35%;
 	padding: 0px;
 	z-index: 99;

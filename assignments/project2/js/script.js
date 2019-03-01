@@ -31,7 +31,9 @@ let questions = [
   "Do you like bananas or pears? say, I like...",
   "What is your astrological sign? say, I am ...",
   "Do you prefer Lady Gaga or Britney Spears? say, I prefer ...",
-
+  "Are you male, female, or ... ? say, I am ...",
+  "Are you generally happy, sad, angry, shy, boring, or an alien? say, I am ...",
+  "Do you identify as vegetarian, omnivore, or cannibal? say, I am...",
 ]
 
 
@@ -123,6 +125,7 @@ $(document).ready(function() {
       'I enjoy *tag': answerImageFunction,
       'My favorite flower is *tag': answerImageFunction,
       'I prefer *tag': answerImageFunction,
+      'It was *tag': answerImageFunction,
 
     };
 
