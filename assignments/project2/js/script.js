@@ -8,14 +8,32 @@ Michael Watts
 This is a template. You must fill in the title,
 author, and this description to match your project!
 
+//uses: ResponsiveVoice
+//https://responsivevoice.org/
+
+//uses: annyang
+//https://www.talater.com/annyang/
+
 ******************/
 // Ambient sound for experience, will be engaged in the videoFunction when user
 // clicks to begin
 const soundscape = new Audio('assets/sounds/soundscape.mp3');
-// Array for responses to god (annyang)
-let answerToGod = [
-  "dog",
-  "cats",
+
+// Array for things Gawd will say
+let gawdSpeakVoice = "UK English Female";
+let gawdSpeak = [
+  "Hello?",
+  "What?",
+  "Are you there?",
+  "I can not hear you?",
+  "Say that again",
+  "Please speak more clearly, you are mumbling",
+  "Jesus, next question",
+  "That is stupid",
+  "How dare you",
+  "I told you so",
+  "Get a life",
+  "funny ha ha ha ha ha ha funny ha ha ha ha ha ha ha ha ha ha ha ha hilarious",
 ]
 
 // Array for series of questions
@@ -25,7 +43,7 @@ let questions = [
   "What country are you from? say I am from ...",
   "Do you like dogs or cats? say, I like ...",
   "Do you like red or blue? say, I like ...",
-  "What is your favourite flower? say, My favourite is ...",
+  "What is your favourite flower? say, My favourite flower is ...",
   "Do you prefer spaghetti or pizza? say, I prefer ...",
   "Chocolate or vanilla icecream? say, I like ...",
   "Do you like bananas or pears? say, I like ...",
@@ -146,6 +164,11 @@ $(document).ready(function() {
     annyang.start();
   }
 
+  function gawdSpeakHandler() {
+  // Use ResponsiveVoice to speak the string we generated, with UK English Male voice
+  // and the options we just specified.
+  responsiveVoice.speak(gawdSpeak,'UK English Male');
 
+}
 
 });
