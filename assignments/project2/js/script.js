@@ -20,20 +20,27 @@ let answerToGod = [
 
 // Array for series of questions
 let questions = [
-  "What is your name? say, My name is...",
-  "Tell me your age? say, I am...",
-  "What country are you from? say I am from...",
-  "Do you like dogs or cats? say, I like...",
-  "Do you like red or blue? say, I like...",
-  "What is your favourite flower? say, My favourite is...",
-  "Do you prefer spaghetti or pizza? say, I prefer...",
+  "What is your name? say, My name is ...",
+  "Tell me your age? say, I am ...",
+  "What country are you from? say I am from ...",
+  "Do you like dogs or cats? say, I like ...",
+  "Do you like red or blue? say, I like ...",
+  "What is your favourite flower? say, My favourite is ...",
+  "Do you prefer spaghetti or pizza? say, I prefer ...",
   "Chocolate or vanilla icecream? say, I like ...",
-  "Do you like bananas or pears? say, I like...",
+  "Do you like bananas or pears? say, I like ...",
   "What is your astrological sign? say, I am ...",
   "Do you prefer Lady Gaga or Britney Spears? say, I prefer ...",
   "Are you male, female, or ... ? say, I am ...",
   "Are you generally happy, sad, angry, shy, boring, or an alien? say, I am ...",
-  "Do you identify as vegetarian, omnivore, or cannibal? say, I am...",
+  "Do you identify as vegetarian, omnivore, or cannibal? say, I am ...",
+  "Are you usually early or late? say, I am ...",
+  "Are you afraid of fire, spiders, or intimacy? say, I fear ... ",
+  "What is something you hate? say, I hate ... (ex. cats)",
+  "Are you sexy or ugly? Now be honest! say, I am ... ",
+  "Do you like to hug, smile, or fart? say, I like to ...",
+  "Who do you prefer? Mom or dad? say, I prefer ...",
+  "Do you prefer to kiss boys or girls (of legal age)? say, I prefer ... "
 ]
 
 
@@ -125,8 +132,9 @@ $(document).ready(function() {
       'I enjoy *tag': answerImageFunction,
       'My favorite flower is *tag': answerImageFunction,
       'I prefer *tag': answerImageFunction,
-      'It was *tag': answerImageFunction,
-
+      'I hate *tag': answerImageFunction,
+      'I fear *tag': answerImageFunction,
+      'I like to *tag': answerImageFunction,
     };
 
     // Now we've defined the commands we give them to annyang
