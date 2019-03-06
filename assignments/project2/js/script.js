@@ -20,7 +20,7 @@ author, and this description to match your project!
 const soundscape = new Audio('assets/sounds/soundscape.mp3');
 
 // Array for things Gawd will say
-let gawdSpeakVoice = "UK English Female";
+
 let gawdSpeak = [
   "Hello?",
   "What?",
@@ -28,13 +28,20 @@ let gawdSpeak = [
   "I can not hear you?",
   "Say that again",
   "Please speak more clearly, you are mumbling",
-  "Jesus, next question",
+]
+
+let gawdRude = [
+  "Hit me baby one more poker face",
+  "Are you certain about that?",
   "That is stupid",
   "How dare you",
   "I told you so",
   "Get a life",
+  "Are you crazy?",
   "funny ha ha ha ha ha ha funny ha ha ha ha ha ha ha ha ha ha ha ha hilarious",
+  "Oy you are so boring"
 ]
+
 
 // Array for series of questions
 let questions = [
@@ -65,6 +72,7 @@ let questions = [
 // Set up for introduction to experience. The button click will engage video, soundscape
 // and first question in the series that will come our like a typewriter
 $(document).ready(function() {
+
   let i = 0;
   let currentQuestion = 0;
   let txt = questions[0];
@@ -119,6 +127,14 @@ $(document).ready(function() {
       let responseImg = document.getElementById("responseImage");
       responseImg.src = data.items[0].media.m;
 
+      // Starting at question 10, a random and rude response from Gawd will display
+      // from the string of responses
+      if (currentQuestion >= 10) {
+        let gawdRudeSpeak = Math.floor(Math.random() * gawdRude.length);
+        responsiveVoice.speak(gawdRude[gawdRudeSpeak], "Moldavian Female");
+      }
+
+
       //resets for the next question
       resetNextQuestion();
     });
@@ -164,11 +180,6 @@ $(document).ready(function() {
     annyang.start();
   }
 
-  function gawdSpeakHandler() {
-  // Use ResponsiveVoice to speak the string we generated, with UK English Male voice
-  // and the options we just specified.
-  responsiveVoice.speak(gawdSpeak,'UK English Male');
 
-}
 
 });
