@@ -22,10 +22,11 @@ const soundscape = new Audio('assets/sounds/soundscape.mp3');
 // Array for things Gawd will say
 
 let gawdSpeak = [
-  "Hello?",
-  "What?",
-  "Are you there?",
-  "I can not hear you?",
+  "Please repeat you answer",
+  "What",
+  "Can you read",
+  "Are you still there",
+  "I can not hear you",
   "Say that again",
   "Please speak more clearly, you are mumbling",
 ]
@@ -68,7 +69,6 @@ let questions = [
   "Do you prefer to kiss boys or girls (of legal age)? say, I prefer ... "
 ]
 
-
 // Set up for introduction to experience. The button click will engage video, soundscape
 // and first question in the series that will come our like a typewriter
 $(document).ready(function() {
@@ -100,13 +100,18 @@ $(document).ready(function() {
     typebutton.style.display = "block";
   }
 
-  // god will speak using type writer animationd
+  // Gawd will communicate using type writer animation. If there is no answer after 9 seconds
+  // Gawd will speak a random impatient phrase
   function typeWriter() {
     typebutton.style.display = "none";
     if (i < txt.length) {
       document.getElementById("demo").innerHTML += txt.charAt(i);
       i++;
       setTimeout(typeWriter, speed);
+    }
+    else{
+      console.log("finished typing");
+      setTimeout(gawdWaiting, 9000);
     }
   }
 
@@ -127,26 +132,36 @@ $(document).ready(function() {
       let responseImg = document.getElementById("responseImage");
       responseImg.src = data.items[0].media.m;
 
-      // Starting at question 10, a random and rude response from Gawd will display
+      // Starting at question 10, a random and rude response from Gawd will play
       // from the string of responses
       if (currentQuestion >= 10) {
         let gawdRudeSpeak = Math.floor(Math.random() * gawdRude.length);
         responsiveVoice.speak(gawdRude[gawdRudeSpeak], "Moldavian Female");
       }
 
-
       //resets for the next question
       resetNextQuestion();
     });
+
+  }
+
+ function gawdWaiting(){
+   console.log("timer expired");
+
+  //   setTimeout(gawdWaiting, 3000);
+    let gawdWaitingSpeak = Math.floor(Math.random() * gawdSpeak.length);
+   responsiveVoice.speak(gawdSpeak[gawdWaitingSpeak], "Moldavian Female");
   }
 
   // Calculates currrent question and then resets for the next question
   function resetNextQuestion() {
+
     i=0;
     currentQuestion += 1;
     txt = questions[currentQuestion];
     document.getElementById("demo").innerHTML ="";
     typeWriter();
+
   }
 
 
