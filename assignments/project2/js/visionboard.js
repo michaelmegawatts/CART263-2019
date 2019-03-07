@@ -3,11 +3,11 @@
 //*****************
 
 //Michael Watts
-//extra special thanks to Sabine
+//extra special thanks to Sabine !!
 
 // Store images in an array that will go to visionboard.html with their assigned tag
 function populateVisionBoard(){
-  console.log("test");
+  //console.log("test");
   //...
   let storedImages = JSON.parse(localStorage.getItem("visionBoardImages"));
   console.log(storedImages);

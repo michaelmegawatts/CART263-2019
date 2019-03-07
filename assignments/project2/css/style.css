@@ -48,7 +48,8 @@ html, body {
 .content:hover {
 }
 
-.questionGod {
+/* Starting button for first question from gawd */
+.questionGawd {
 	position: fixed;
 	top: 13%;
 	left: 29%;
@@ -75,13 +76,40 @@ html, body {
 	width: 500px;
 }
 
-
+/* Game end button for vision board */
 #responseImage {
 	position: absolute;
 	width: 250px;
 	top: 40%;
 	left: 42%;
 	z-index: 99;
+}
+
+.gameEnd {
+	position: fixed;
+	top: 75%;
+	left: 29%;
+	width: 700px;
+	height: 200px;
+	padding: 0px;
+	z-index: 99;
+}
+
+#endButton {
+	font-family: 'Press Start 2P', cursive;
+	font-size: 15px;
+	margin: 20px 170px;
+	padding: 20px;
+}
+
+#end {
+	font-family: 'VT323', cursive;
+	font-size: 40px;
+	color: #ffff00;
+	text-align:center;
+	margin: 10px 80px;
+	padding: 20px;
+	width: 500px;
 }
 
 /* Final Vision Board styling using flex-box */
