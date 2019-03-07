@@ -161,8 +161,8 @@ let animals = [
 // We need to track the correct answer for each round
 let correctAnimal;
 // We also track all the possibly answers (mostly so we can switch their order around)
-let answers
-
+let answers;
+// Keeps score for correct answers
 let scoreKeeper = 0;
 
 
@@ -179,6 +179,9 @@ if (annyang) {
       speakAnimal(correctAnimal);
       // Start a new round
       setTimeout(newRound,1000);
+      // score keeper. when user says command 'i give up' score returns to 0
+      scoreKeeper = 0;
+      $('#score-keeper').text(scoreKeeper);
     },
     // repeats the animal in question
     'Say it again': function() {
@@ -194,21 +197,12 @@ if (annyang) {
     }
   }
 
-
-
-
-
-
   // Add our commands to annyang
   annyang.addCommands(commands);
 
   // Start listening. You can call this here, or attach this call to an event, button, etc.
   annyang.start();
-
-
 }
-
-
 
 // setup()
 //
@@ -223,7 +217,6 @@ function setup() {
 // Remove the click to begin and set up a round of play
 function startGame() {
   $('#click-to-begin').remove();
-
   newRound();
 }
 
@@ -251,6 +244,7 @@ function newRound() {
 
   // Say the name of the animal
   speakAnimal(correctAnimal);
+
 }
 
 // speakAnimal(name)
@@ -300,12 +294,19 @@ function addButton(label) {
     if ($(this).text() === correctAnimal) {
       // Remove all the buttons
       $('.guess').remove();
+      // if user has correct answer score increases by 1
+      scoreKeeper += 1;
+      $('#score-keeper').text(scoreKeeper);
+
       // Start a new round
       setTimeout(newRound,1000);
     }
     else {
       // Otherwise they were wrong, so shake the button
       $(this).effect('shake');
+      // if user answer is wrong, score goes to 0
+      scoreKeeper = 0;
+      $('#score-keeper').text(scoreKeeper);
       // And say the correct animal again to "help" them
       speakAnimal(correctAnimal);
     }
@@ -314,19 +315,3 @@ function addButton(label) {
   // Finally, add the button to the page so we can see it
   $('body').append($button);
 }
-
-function scoreAnswer() {
-  if ('correctAnimal' = ) {
-    scoreKeeper += 1;
-  }
-  else {
-    scoreKeeper = 0;
-  }
-
-  if ('I give up') {
-    scoreKeeper = 0;
-  }
-  //$('.found').off('mouseover');
-
-  $('#score-keeper').text(score-keeper);
-};
