@@ -33,7 +33,7 @@ html, body {
 	text-align:center;
 	font-size: 30px;
 	width: 550px;
-	top: 13%;
+	top: 18%;
 	left: 35%;
 	padding: 0px;
 	z-index: 99;
@@ -41,7 +41,7 @@ html, body {
 }
 .content img{
 	padding: 10px;
-	width: 50%;
+	width: 40%;
 	height: auto;
 }
 
