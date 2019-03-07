@@ -42,10 +42,21 @@ let gawdRude = [
   "That is stupid",
   "How dare you",
   "I told you so",
-  "Get a life",
   "Are you crazy?",
   "funny ha ha ha ha ha ha funny ha ha ha ha ha ha ha ha ha ha ha ha hilarious",
   "Oy you are so boring"
+]
+
+let gawdEvil = [
+  "You bitch",
+  "Crack is wack",
+  "That is so so so stupid",
+  "Fuck you you stupid wanker",
+  "You big baby la la",
+  "Get a life",
+  "whatever",
+  "funny ha ha ha ha ha ha funny ha ha ha ha ha shit ha ha ha ha ha hilarious",
+  "Go to hell",
 ]
 
 
@@ -58,6 +69,7 @@ let questions = [
   "Do you like red or blue? say, I like ...",
   "What is your favourite flower? say, My favourite flower is ...",
   "Do you prefer spaghetti or pizza? say, I prefer ...",
+  "What kind of animal are you? say, I am a ... ",
   "Chocolate or vanilla icecream? say, I like ...",
   "Do you like bananas or pears? say, I like ...",
   "What is your astrological sign? say, I am ...",
@@ -71,7 +83,16 @@ let questions = [
   "Are you sexy or ugly? Now be honest! say, I am ... ",
   "Do you like to hug, smile, or fart? say, I like to ...",
   "Who do you prefer? Mom or dad? say, I prefer ...",
-  "Do you prefer to kiss boys or girls (of legal age)? say, I prefer ... "
+  "Do you prefer to kiss boys or girls (of legal age)? say, I prefer ... ",
+  "Have you ever stolen something? say, I stole ...",
+  "Do you believe in Jesus, Satan, or Gawd :) ? say, I believe in ...",
+  "Ok, then do you workshop Jesus, Satan, or Ru Paul? say, I worship Ru Paul",
+  "Who is your favourite professor? Pippin, PippiN, or piPPin? say, Pippin ... (or die)",
+  "Do you enjoy playing with guns, grenades, or witchcraft? say, I prefer ...",
+  "What do you want your last meal to be? say, I want ... ",
+  "What is your hallucinogen of choice? Mushrooms, acid, weed, molly, cocaine, or religion? say, I prefer ...",
+  "What sibling is you least favourite? say, My ... ",
+  "Wow, you sure are a piece of work. I think I can judge you now... press the button for my gift ↓↓↓ ",
 ]
 
 
@@ -145,7 +166,12 @@ $(document).ready(function() {
       // from the string of responses
       if (currentQuestion >= 10) {
         let gawdRudeSpeak = Math.floor(Math.random() * gawdRude.length);
-        responsiveVoice.speak(gawdRude[gawdRudeSpeak], "Moldavian Female");
+        responsiveVoice.speak(gawdRude[gawdRudeSpeak], "Australian Male");
+      }
+
+      if (currentQuestion >= 20) {
+        let gawdEvilSpeak = Math.floor(Math.random() * gawdEvil.length);
+        responsiveVoice.speak(gawdEvil[gawdEvilSpeak], "Australian Male");
       }
 
       //resets for the next question
@@ -191,6 +217,12 @@ $(document).ready(function() {
       'I hate *tag': answerImageFunction,
       'I fear *tag': answerImageFunction,
       'I like to *tag': answerImageFunction,
+      'I stole *tag': answerImageFunction,
+      'I believe in *tag': answerImageFunction,
+      'I worship *tag': answerImageFunction,
+      'Pippin *tag': answerImageFunction,
+      'I want *tag': answerImageFunction,
+      'My *tag': answerImageFunction,
     };
 
     // send commands to annyang
