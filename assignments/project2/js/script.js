@@ -196,9 +196,6 @@ $(document).ready(function() {
     typeWriter();
   }
 
-
-
-
   // set up for annyang
   if (annyang) {
     // Add the commands to annyang. That is it should listen
