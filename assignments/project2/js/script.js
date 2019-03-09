@@ -86,7 +86,7 @@ let questions = [
   "Have you ever stolen something? say, I stole ...",
   "Do you believe in Jesus, Satan, or Gawd :) ? say, I believe in ...",
   "Ok, then do you workshop Jesus, Satan, or Ru Paul? say, I worship Ru Paul",
-  "Who is your favourite professor? Pippin, PippiN, or piPPin? say, Pippin ... (or die)",
+  "Who is your favourite professor? Pippin, PippiN, or piPPin? say, my favourite is Pippin ... (or die)",
   "Do you enjoy playing with guns, grenades, or witchcraft? say, I prefer ...",
   "What do you want your last meal to be? say, I want ... ",
   "What is your hallucinogen of choice? Mushrooms, acid, weed, molly, cocaine, or religion? say, I prefer ...",
@@ -234,7 +234,7 @@ $(document).ready(function() {
       'I worship *tag': answerImageFunction,
       'Pippin *tag': answerImageFunction,
       'I want *tag': answerImageFunction,
-      'My *tag': answerImageFunction,
+      'My favourite is *tag': answerImageFunction,
     };
 
     // send commands to annyang
