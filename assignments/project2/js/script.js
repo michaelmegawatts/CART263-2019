@@ -4,7 +4,7 @@
 
 Title of Project: Conversation with Gawd
 Michael Watts
-extra special thanks to Sabine
+extra special thanks to Sabine and of course the master leaders Pippin and Michael
 
 Visuals created by Michael Watts
 Soundscape: myNoise - Space Voyager, "Mission Seven"
@@ -59,7 +59,6 @@ let gawdEvil = [
   "Go to hell",
 ]
 
-
 // Array for series of questions
 let questions = [
   "What is your name? say, My name is ...",
@@ -92,10 +91,8 @@ let questions = [
   "What do you want your last meal to be? say, I want ... ",
   "What is your hallucinogen of choice? Mushrooms, acid, weed, molly, cocaine, or religion? say, I prefer ...",
   "What sibling is you least favourite? say, My ... ",
-  "Wow, you sure are a piece of work. I think I can judge you now... press the button for my gift ↓↓↓ ",
+  "Wow, you sure are high maintenance. I think I can judge you now... press the button for my gift ↓↓↓ ",
 ]
-
-
 
 // Set up for introduction to experience. The button click will engage video, soundscape
 // and first question in the series that will come our like a typewriter
@@ -112,6 +109,11 @@ $(document).ready(function() {
   typebutton.addEventListener("click",typeWriter);
   typebutton.style.display = "none";
   btnImg.addEventListener("click",gameStart);
+
+  let endButton = document.getElementById("endButton");
+  endButton.style.display = "none";
+  endButton.addEventListener("click",gameOver);
+
 
   // function to play video and sound with a click for the introduction
   function gameStart(){
@@ -145,13 +147,15 @@ $(document).ready(function() {
   // set up response to Gawd using images through flickr that will appear on screen
   let answerImageFunction = function(tag) {
     var url = "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-    //$.getJSON(url);
+
     console.log(tag);
     $.getJSON( url, {
       tags:tag,
       tagmode: "any",
       format: "json"
     })
+
+    // images will also be stored to "visionboard.js + html" for end of game gift
     .done(function( data ) {
       clearTimeout(timer);
       console.log(data.items[0].media.m);
@@ -159,8 +163,8 @@ $(document).ready(function() {
       responseImg.src = data.items[0].media.m;
       visionBoardImage.push(data.items[0].media.m);
       localStorage.setItem("visionBoardImages", JSON.stringify(visionBoardImage));
-        let storedImages = JSON.parse(localStorage.getItem("visionBoardImages"));
-        console.log(storedImages);
+      let storedImages = JSON.parse(localStorage.getItem("visionBoardImages"));
+      console.log(storedImages);
 
       // Starting at question 10, a random and rude response from Gawd will play
       // from the string of responses
@@ -191,13 +195,21 @@ $(document).ready(function() {
   function resetNextQuestion() {
     i=0;
     currentQuestion += 1;
+    gameOver();
     txt = questions[currentQuestion];
     document.getElementById("demo").innerHTML ="";
     typeWriter();
   }
 
-
-
+  function gameOver(){
+    console.log("whatever");
+    if (currentQuestion === 30) {
+      endButton.style.display = "block";
+    }
+    else {
+      endButton.style.display = "none";
+    }
+}
 
   // set up for annyang
   if (annyang) {
