@@ -113,15 +113,8 @@ html, body {
 }
 
 /* Final Vision Board styling using flex-box */
-#vbHeader {
-	background: url(..assets/images/vbbg.png) no-repeat fixed center center;
-	background-size: cover;
-	width: 100%;
-	height: 100%;
-}
 
 #vbHeader hgroup {
-	position: fixed;
 	width: 100%;
 	background: #FFA9CC;
 	padding: 40px 20px;

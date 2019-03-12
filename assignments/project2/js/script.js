@@ -194,7 +194,7 @@ $(document).ready(function() {
   // Calculates currrent question and then resets for the next question
   function resetNextQuestion() {
     i=0;
-    currentQuestion += 1;
+    currentQuestion += 31;
     gameOver();
     txt = questions[currentQuestion];
     document.getElementById("demo").innerHTML ="";
@@ -203,7 +203,7 @@ $(document).ready(function() {
 
   function gameOver(){
     console.log("whatever");
-    if (currentQuestion === 2) {
+    if (currentQuestion === 31) {
       endButton.style.display = "block";
     }
     else {
