@@ -85,12 +85,12 @@ let questions = [
   "Do you prefer to kiss boys or girls (of legal age)? say, I prefer ... ",
   "Have you ever stolen something? say, I stole ...",
   "Do you believe in Jesus, Satan, or Gawd :) ? say, I believe in ...",
-  "Ok, then do you workshop Jesus, Satan, or Ru Paul? say, I worship Ru Paul",
+  "Ok, then do you workshop Jesus, Satan, or Ru Paul? say, I worship ... ",
   "Who is your favourite professor? Pippin, PippiN, or piPPin? say, my favourite is Pippin ... (or die)",
   "Do you enjoy playing with guns, grenades, or witchcraft? say, I prefer ...",
   "What do you want your last meal to be? say, I want ... ",
   "What is your hallucinogen of choice? Mushrooms, acid, weed, molly, cocaine, or religion? say, I prefer ...",
-  "What sibling is you least favourite? say, My ... ",
+  "What sibling is your least favourite? say, My ... ",
   "Wow, you sure are high maintenance. I think I can judge you now... press the button for my gift ↓↓↓ ",
 ]
 
@@ -194,7 +194,7 @@ $(document).ready(function() {
   // Calculates currrent question and then resets for the next question
   function resetNextQuestion() {
     i=0;
-    currentQuestion += 31;
+    currentQuestion += 1;
     gameOver();
     txt = questions[currentQuestion];
     document.getElementById("demo").innerHTML ="";
@@ -203,7 +203,7 @@ $(document).ready(function() {
 
   function gameOver(){
     console.log("whatever");
-    if (currentQuestion === 31) {
+    if (currentQuestion === 30) {
       endButton.style.display = "block";
     }
     else {
@@ -235,6 +235,7 @@ $(document).ready(function() {
       'Pippin *tag': answerImageFunction,
       'I want *tag': answerImageFunction,
       'My favourite is *tag': answerImageFunction,
+      'My *tag': answerImageFunction,
     };
 
     // send commands to annyang
