@@ -3,18 +3,18 @@
 /*****************
 
 Title of Project: Conversation with Gawd
-Michael Watts
+by: Michael Watts
 extra special thanks to Sabine and of course the master leaders Pippin and Michael
 
 Visuals created by Michael Watts
 Soundscape: myNoise - Space Voyager, "Mission Seven"
+//https://mynoise.net
 
 //uses: ResponsiveVoice
 //https://responsivevoice.org/
 
 //uses: annyang
 //https://www.talater.com/annyang/
-
 
 
 ******************/
@@ -24,8 +24,7 @@ let timer;
 const soundscape = new Audio('assets/sounds/soundscape.mp3');
 let visionBoardImage = [];
 
-// Array for things Gawd will say
-
+// Array for things Gawd will say when response is slow
 let gawdSpeak = [
   "Please repeat you answer",
   "What",
@@ -35,7 +34,7 @@ let gawdSpeak = [
   "Say that again",
   "Please speak more clearly, you are mumbling",
 ]
-
+// Array for things Gawd will say after first 10 questions
 let gawdRude = [
   "Hit me baby one more poker face",
   "Are you certain about that?",
@@ -46,7 +45,7 @@ let gawdRude = [
   "funny ha ha ha ha ha ha funny ha ha ha ha ha ha ha ha ha ha ha ha hilarious",
   "Oy you are so boring"
 ]
-
+// Array for things Gawd will say after 20 questions
 let gawdEvil = [
   "You bitch",
   "Crack is wack",
@@ -114,7 +113,6 @@ $(document).ready(function() {
   endButton.style.display = "none";
   endButton.addEventListener("click",gameOver);
 
-
   // function to play video and sound with a click for the introduction
   function gameStart(){
     if(video.paused){
@@ -155,7 +153,7 @@ $(document).ready(function() {
       format: "json"
     })
 
-    // images will also be stored to "visionboard.js + html" for end of game gift
+    // images will also be stored to "visionboard.js + html" for end of game gift !
     .done(function( data ) {
       clearTimeout(timer);
       console.log(data.items[0].media.m);
@@ -200,7 +198,7 @@ $(document).ready(function() {
     document.getElementById("demo").innerHTML ="";
     typeWriter();
   }
-
+  // function to calculate when game is over and present button for final gift
   function gameOver(){
     console.log("whatever");
     if (currentQuestion === 30) {
@@ -209,14 +207,14 @@ $(document).ready(function() {
     else {
       endButton.style.display = "none";
     }
-}
+  }
 
   // set up for annyang
   if (annyang) {
     // Add the commands to annyang. That is it should listen
     // for "I am..." or "I'm..." followed by some number of words.
     // In annyang's commands an asterisk (*) followed by a
-    // variable names means that annyang will call the function
+    // variable name means that annyang will call the function
     // specified with EVERYTHING it heard from that point on...
     var command = {
       'My name is *tag': answerImageFunction,
