@@ -203,7 +203,7 @@ $(document).ready(function() {
 
   function gameOver(){
     console.log("whatever");
-    if (currentQuestion === 30) {
+    if (currentQuestion === 1) {
       endButton.style.display = "block";
     }
     else {
