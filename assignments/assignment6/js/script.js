@@ -55,34 +55,41 @@ function gotData(data) {
   // Same again for room
   let room = getRandomElement(data.rooms);
 
+  // Same again for room
+  let greekgod = getRandomElement(data.greek_gods);
 
-  let vowelTest = (function() {
-    let re = /^[aeiou]$/i;
-    return function(s) {
-      return re.test(s);
-    }
-  })();
-
-  let article = 'a'
+  // Function to test if the room or cat starts with a vowel
+  function vowelTest(s) {
+    return (/^[aeiou]$/i).test(s);
+  }
+  // Check if first letter of the cat is an 'a'
+  let articleCat = '';
   console.log("article");
-  //Check if first letter of the room is an 'a'
-  if (room.charAt(0) === 's') {
-    article = 'an';
+
+  if (vowelTest(cat.charAt(0)) === true) {
+    articleCat = 'an';
   }
   else {
-    article = 'a';
+    articleCat = 'a';
   }
 
 
+//Check if first letter of the room is an 'a'
+  let articleRoom = '';
+  console.log("article");
 
-  // Same again for room
-  console.log(data);
-  let greekgod = getRandomElement(data.greek_gods);
+  if (vowelTest(room.charAt(0)) === true) {
+    articleRoom = 'an';
+  }
+  else {
+    articleRoom = 'a';
+  }
+
 
   // Now we can construct our description with a template string
   // We have the basic structure of a sentence and we substitute in the
   // values we've just calculated
-  let description = `${condiment} ${verb} like ${article} ${cat} in ${article} ${room} with ${greekgod}.`;
+  let description = `${condiment} ${verb} like ${articleCat} ${cat} in ${articleRoom} ${room} with ${greekgod}.`;
 
 
 
