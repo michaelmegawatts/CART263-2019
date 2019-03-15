@@ -16,7 +16,6 @@ http://rednoise.org/rita/index.html
 
 */
 
-let vowels = "aeiou";
 
 $(document).ready(function() {
 
@@ -27,7 +26,16 @@ $(document).ready(function() {
   // the location of the file, and a function to call when the data
   // is available...
   $.getJSON('data/data.json', gotData);
+  $("html").on("click", function() {
+    pageRefresh();
+  });
 });
+
+// Function to get the page to refresh when user clicks anywhere
+function pageRefresh() {
+  $('body').text("");
+  $.getJSON('data/data.json', gotData);
+}
 
 // gotData (data)
 //
@@ -74,7 +82,7 @@ function gotData(data) {
   }
 
 
-//Check if first letter of the room is an 'a'
+  //Check if first letter of the room is an 'a'
   let articleRoom = '';
   console.log("article");
 
@@ -85,17 +93,16 @@ function gotData(data) {
     articleRoom = 'a';
   }
 
-
   // Now we can construct our description with a template string
   // We have the basic structure of a sentence and we substitute in the
   // values we've just calculated
   let description = `${condiment} ${verb} like ${articleCat} ${cat} in ${articleRoom} ${room} with ${greekgod}.`;
 
 
-
   // Finally, we add it to the page and hey presto!
   $('body').append(description)
 }
+
 
 // getRandomElement ()
 //
