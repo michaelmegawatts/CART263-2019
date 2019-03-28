@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+
+  <!-- CSS stylesheet(s) -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  <!-- Libraries -->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+  <script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+
+  <!-- My script(s) -->
+<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+
+  <script src="js/script.js"></script>
+
+</head>
+
+<body>
+  <!-- HTML would go here if needed. -->
+
+  <a-scene background="color: #ECECEC">
+      <a-assets>
+    <!-- ... -->
+    <img id="groundTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2F2018-10-14-Wrestling-new-thumbnail.jpg?1553803019053">
+    <img id="boxTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2FGettyImages-520023742.0.jpg?1553806500369">
+    <img id="sphereTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2Fletgo.png?1553803392184">
+    <img id="coneTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2Fdownload.jpg?1553805588467">
+    <img id="skyTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2FWrestling%20660x238_37B12310-1308-11E5-9090005056A37760.jpg?1553805580521">
+        <!-- ... -->
+    </a-assets>
+
+
+
+    <a-entity rotation="0 0 0">
+      <a-sky src="#skyTexture" position="10 5 0" rotation="0 250 -50"></a-sky>
+      <a-text value="IT'S TIME TO VRESTLE!" position="-.75 3 -2" color="		#FFFFFF"></a-text>
+
+      <a-box src="#boxTexture" position="-1 2 -3" rotation="0 90 0" shadow>
+      <a-animation attribute="position" to="0 4 -5" direction="alternate" dur="2000" repeat="indefinite"></a-animation>
+      </a-box>
+
+
+      <a-sphere src="#sphereTexture" position="4 2.25 -9" radius="2.25" shadow></a-sphere>
+
+      <a-cone src="#coneTexture" position=".25 0.75 -3" rotation="180 0 0" radius="0.5" height="1.5" shadow></a-cone>
+
+      <a-plane src="#groundTexture" rotation="-90 0 0" width="30" height="30" shadow></a-plane>
+
+
+    </a-entity>
+</a-scene>
+
+</body>
+
+</html>
