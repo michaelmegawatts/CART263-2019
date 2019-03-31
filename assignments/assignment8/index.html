@@ -20,7 +20,7 @@
   crossorigin="anonymous"></script>
 
   <!-- My script(s) -->
-<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
 
   <script src="js/script.js"></script>
 
@@ -30,14 +30,14 @@
   <!-- HTML would go here if needed. -->
 
   <a-scene background="color: #ECECEC">
-      <a-assets>
-    <!-- ... -->
-    <img id="groundTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2F2018-10-14-Wrestling-new-thumbnail.jpg?1553803019053">
-    <img id="boxTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2FGettyImages-520023742.0.jpg?1553806500369">
-    <img id="sphereTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2Fletgo.png?1553803392184">
-    <img id="coneTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2Fdownload.jpg?1553805588467">
-    <img id="skyTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2FWrestling%20660x238_37B12310-1308-11E5-9090005056A37760.jpg?1553805580521">
-        <!-- ... -->
+    <a-assets>
+      <!-- ... -->
+      <img id="groundTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2F2018-10-14-Wrestling-new-thumbnail.jpg?1553803019053">
+      <img id="boxTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2FGettyImages-520023742.0.jpg?1553806500369">
+      <img id="sphereTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2Fletgo.png?1553803392184">
+      <img id="coneTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2Fdownload.jpg?1553805588467">
+      <img id="skyTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2FWrestling%20660x238_37B12310-1308-11E5-9090005056A37760.jpg?1553805580521">
+      <!-- ... -->
     </a-assets>
 
 
@@ -47,7 +47,7 @@
       <a-text value="IT'S TIME TO VRESTLE!" position="-.75 3 -2" color="		#FFFFFF"></a-text>
 
       <a-box src="#boxTexture" position="-1 2 -3" rotation="0 90 0" shadow>
-      <a-animation attribute="position" to="0 4 -5" direction="alternate" dur="2000" repeat="indefinite"></a-animation>
+        <a-animation attribute="position" to="0 4 -5" direction="alternate" dur="2000" repeat="indefinite"></a-animation>
       </a-box>
 
 
@@ -57,9 +57,12 @@
 
       <a-plane src="#groundTexture" rotation="-90 0 0" width="30" height="30" shadow></a-plane>
 
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
 
     </a-entity>
-</a-scene>
+  </a-scene>
 
 </body>
 
