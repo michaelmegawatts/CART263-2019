@@ -42,13 +42,14 @@
 
 
 
-    <a-entity rotation="0 0 0">
+
       <a-sky src="#skyTexture" position="10 5 0" rotation="0 250 -50"></a-sky>
+
       <a-text value="IT'S TIME TO VRESTLE!" position="-.75 3 -2" color="		#FFFFFF"></a-text>
 
-      <a-box src="#boxTexture" position="-1 2 -3" rotation="0 90 0" shadow>
-        <a-animation attribute="position" to="0 4 -5" direction="alternate" dur="2000" repeat="indefinite"></a-animation>
-      </a-box>
+      <a-entity rotation="0 0 0">
+      <a-box src="#boxTexture" position="-1 2 -3" rotation="0 90 0" animation="property: position; to:0 2.2 -5; direction: alternate; loop: true; dur:2000 repeat="indefinite" shadow></a-box>
+      </a-entity>
 
 
       <a-sphere src="#sphereTexture" position="4 2.25 -9" radius="2.25" shadow></a-sphere>
@@ -61,7 +62,7 @@
         <a-cursor></a-cursor>
       </a-camera>
 
-    </a-entity>
+
   </a-scene>
 
 </body>
