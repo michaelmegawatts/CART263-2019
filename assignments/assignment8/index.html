@@ -34,10 +34,7 @@
     <a-assets>
       <!-- ... -->
 
-
       <img id="boxImage" src="assets/images/Warrior3.jpg">
-      <img id="sphereTexture" src="https://cdn.glitch.com/2dcf9a83-776a-44ac-9a6e-f30be1c418c2%2Fletgo.png?1553803392184">
-      <img id="coneTexture" src="assets/images/Warrior1.jpg">
 
       <!-- ... -->
     </a-assets>
@@ -45,22 +42,15 @@
 
     <a-entity environment="preset: goaland; groundTexture: checkerboard; skyLight: 3 3; dressingAmount: 500"></a-entity>
 
-
-
-      <a-text value="IT'S TIME TO VRESTLE!" position="-.75 3 -2" color="		#FFFFFF"></a-text>
+      <a-text value="Hot Stuff!" position="-.75 3 -2" color="		#FFFFFF"></a-text>
 
       <a-entity rotation="0 0 0">
-      <a-box src="#boxImage" position="-1 2 5" rotation="0 90 0" animation="property: position; to:0 2.2 -5; direction: alternate; loop: true; dur:2000 repeat="indefinite"" shadow></a-box>
+      <a-box src="#boxImage" position="-0.9 0.946 -9.522" rotation="0 90 0" shadow></a-box>
       </a-entity>
 
-
-
-      <a-sphere src="#sphereTexture" position="4 2.25 -9" radius="2.25" shadow></a-sphere>
-
-  <a-entity rotation="0 0 0">
-      <a-cylinder src="#coneTexture" position=".25 0.75 -3" rotation="0 180 0" radius="1" height="3.5" shadow></a-cone>
-</a-entity>
-
+<!--
+animation="property: position; to:2.5 4.8 3.9; direction: alternate; loop: true; dur:2000 repeat="indefinite""
+-->
 
       <a-camera>
         <a-cursor></a-cursor>
