@@ -11,7 +11,7 @@ html, body {
 
 #myVideo {
 	position: fixed;
-	background: black;
+	background: white;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -50,8 +50,8 @@ html, body {
 .content:hover {
 }
 
-/* Starting button for first question from gawd 
-.questionGawd {
+/* Starting button for first question from Earth*/
+.questionEarth {
 	position: fixed;
 	top: 13%;
 	left: 29%;
@@ -59,4 +59,22 @@ html, body {
 	height: 200px;
 	padding: 0px;
 	z-index: 99;
-} */
+}
+
+#typebutton {
+	font-family: 'Audiowide';
+	font-size: 15px;
+	line-height: 1.6;
+	margin: 20px 170px;
+	padding: 20px;
+}
+
+#demo {
+	font-family: 'Audiowide';
+	font-size: 40px;
+	color: #9370DB;
+	text-align:center;
+	margin: 10px 80px;
+	padding: 20px;
+	width: 500px;
+}
