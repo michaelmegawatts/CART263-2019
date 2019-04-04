@@ -1,5 +1,62 @@
-/*********************************************
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+* {
+	margin:0;
+	padding: 0;
+	box-sizing:border-box;
+}
 
-This is the style file for this project.
+html, body {
+	height: 100%;
+}
 
-**********************************************/
+#myVideo {
+	position: fixed;
+	background: black;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	min-width: 100%;
+	min-height: 100%;
+	z-index: -1;
+}
+
+
+/* start button */
+#intro {
+	width:100%;
+	height:100%;
+}
+
+.content {
+	position: absolute;
+	font-family: 'Audiowide';
+	color: 	#9370DB;
+	text-align:center;
+	line-height: 1.6;
+	font-size: 27px;
+	width: 550px;
+	top: 5%;
+	left: 35%;
+	padding: 0px;
+	z-index: 99;
+	transition: all .3s;
+}
+.content img{
+	padding: 10px;
+	width: 50%;
+	height: auto;
+}
+
+.content:hover {
+}
+
+/* Starting button for first question from gawd 
+.questionGawd {
+	position: fixed;
+	top: 13%;
+	left: 29%;
+	width: 700px;
+	height: 200px;
+	padding: 0px;
+	z-index: 99;
+} */
