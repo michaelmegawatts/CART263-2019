@@ -18,17 +18,32 @@ const data = []
 
 // Class for series of questions
 class EarthQuestion {
-  constructor(question,answer,positiveA,negativeA,Stamp) {
+  constructor(question,answer,positiveA,negativeA,stamp) {
     this.question = question;
     this.answer = answer;
     this.positiveA = positiveA;
     this.negativeA = negativeA;
-    this.Stamp = Stamp;
+    this.stamp = stamp;
   }
+
+  // Updates stamp function images
+  update (stamp) {
+    this.stamp = stamp;
+  }
+
+  /* Draw images using stamp function, rotate and scale
+   display (){
+    push();
+    translate(this.x,this.y);
+    rotate(this.stampAngle);
+    scale(this.stampSize);
+    image(this.stampImage,0,0);
+    pop();
+  }*/
 }
 
-data.push(new EarthQuestion("Are you from planet Earth","Best planet of the universe!","true","false","earth.jpg"));
-data.push(new EarthQuestion("Is the earth flat?","phewf!","true","false","earth.jpg"));
+data.push(new EarthQuestion("Are you from planet Earth","Best planet of the universe!","true","false","earth.png"));
+data.push(new EarthQuestion("Is the earth flat?","phewf!","true","false","startbutton.png"));
 
 // Set up for introduction to experience. The button click will engage video, soundscape
 // and first question in the series
@@ -36,14 +51,14 @@ $(document).ready(function() {
   let i = 0;
   let currentQuestion = 0;
   let txt = data[0].question;
-  let stampImage = data[0].Stamp;
+//  let stampImage = data[0].Stamp;
+  let currentStamp = "assets/images/"+data[0].stamp;
   let speed = 100;
 
   let video = document.getElementById("myVideo");
   let btn = document.getElementById("intro");
   let btnImg = document.getElementById("clickMe");
   let typebutton = document.getElementById("typebutton");
-  let btnAnswer = document.getElementById("widget");
   typebutton.addEventListener("click",typeWriter);
 
   typebutton.style.display = "none";
@@ -52,6 +67,10 @@ $(document).ready(function() {
     checkBoxY.addEventListener("click",positiveA);
   let checkBoxN = document.getElementById("myCheckN");
     checkBoxN.addEventListener("click",negativeA);
+
+let stampContainer = document.getElementById("stampImage");
+stampContainer.src = currentStamp;
+let questionNumber =0;
 
   //btnAnswer.addEventListener("click",playerAnswer);
   // function to play video and sound with a click for the introduction
@@ -85,8 +104,12 @@ $(document).ready(function() {
   function positiveA() {
     var checkBox = document.getElementById("myCheckY");
     var text = document.getElementById("text");
+    questionNumber++;
+    currentStamp = "assets/images/"+data[questionNumber].stamp;
+    stampContainer.src = currentStamp;
     if (checkBox.checked == true){
       text.style.display = "block";
+      //Stamp.push();
     } else {
        text.style.display = "none";
     }
@@ -101,6 +124,35 @@ $(document).ready(function() {
        text.style.display = "none";
     }
   }
+
+  // Handle when user mouses over game shapes to drag it and make it draggable
+// code - parts of Beach Party by Pippin Barr but altered code
+
+$('#content').on('mouseover', function () {
+    $(this).draggable({
+      // The start property takes a function that is called when dragging starts
+      start: function () {
+        console.log (this);
+        // Create function for each object to be draggable
+        if ($(this).hasClass("bauhaus")) {
+          $('#content').append('<div class="master bauhaus"><img src="assets/images/bauhaus.png" alt=""></div>');
+        }
+
+
+
+      },
+      // Remove the master class of the dragged circle so user can click on circle and they will explode
+      // leaving the master in place
+
+    });
+  });
+
+
+
+
+
+
+
   // Function for when user answers yes, and then Earth responds
 //function earthAnswerYes(){
   //console.log("timer expired");
@@ -123,7 +175,6 @@ $(document).ready(function() {
     document.getElementById("demo").innerHTML ="";
     typeWriter();
   }
-
 
 
 
