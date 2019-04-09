@@ -12,12 +12,6 @@ button photo: https://unsplash.com/photos/BPiQ25xU6ak
 earth photo: https://www.nasa.gov/topics/earth/index.html
 ******************/
 
-//const data = [
-  //{"question": 'string',
-  //  "answers":[ 'strings',...]
-//  }
-//]
-
 
 const data = []
 
@@ -51,9 +45,14 @@ $(document).ready(function() {
   let typebutton = document.getElementById("typebutton");
   let btnAnswer = document.getElementById("widget");
   typebutton.addEventListener("click",typeWriter);
-  
+
   typebutton.style.display = "none";
   btnImg.addEventListener("click",gameStart);
+  let checkBoxY = document.getElementById("myCheckY");
+    checkBoxY.addEventListener("click",positiveA);
+  let checkBoxN = document.getElementById("myCheckN");
+    checkBoxN.addEventListener("click",negativeA);
+
   //btnAnswer.addEventListener("click",playerAnswer);
   // function to play video and sound with a click for the introduction
   function gameStart(){
@@ -84,7 +83,17 @@ $(document).ready(function() {
   }
 
   function positiveA() {
-    var checkBox = document.getElementById("myCheck");
+    var checkBox = document.getElementById("myCheckY");
+    var text = document.getElementById("text");
+    if (checkBox.checked == true){
+      text.style.display = "block";
+    } else {
+       text.style.display = "none";
+    }
+  }
+
+  function negativeA() {
+    var checkBox = document.getElementById("myCheckN");
     var text = document.getElementById("text");
     if (checkBox.checked == true){
       text.style.display = "block";
