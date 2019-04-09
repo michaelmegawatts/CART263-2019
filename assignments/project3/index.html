@@ -6,25 +6,58 @@
 
   <!-- CSS stylesheet(s) -->
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-
+  <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
   <!-- Libraries -->
   <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
   <script
   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
   crossorigin="anonymous"></script>
-  
-  <!-- My script(s) -->
-  <script src="js/script.js"></script>
+
+  <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+<!-- My script(s) -->
+
+
+
 </head>
 
 <body>
   <!-- HTML would go here if needed. -->
+
+  <!-- Set up for video background -->
+  <video width="320" height="240" id="myVideo">
+		<source src="assets/video/bgvideo.mp4" type="video/mp4">
+		<source src="movie.ogg" type="video/ogg">
+	</video>
+
+  <!-- Introduction button to start video -->
+  <section id="intro">
+    <div class="content">
+			<h1>Puzzle time!</h1>
+			<p>click to puzzle ↓↓↓ </p>
+			<img id = "clickMe" src="assets/images/startbutton.png" alt="">
+		</div>
+  </section>
+
+  <!-- Button that initiates questions from Earth-->
+  <div class ="questionEarth">
+    <button id = "typebutton"> Click to start </button>
+    <p id="demo"></p>
+  </div>
+
+  Checkbox Yes: <input type="checkbox" id="myCheck"  onclick="positiveA()">
+  <p id="text" style="display:none">Checkbox is CHECKED!</p>
+
+
+
+  <script src="js/script.js"></script>
+
 </body>
 
 </html>
