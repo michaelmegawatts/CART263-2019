@@ -10,6 +10,7 @@ author, and this description to match your project!
 
 button photo: https://unsplash.com/photos/BPiQ25xU6ak
 earth photo: https://www.nasa.gov/topics/earth/index.html
+polar bear: https://defenders.org/climate-change/overview
 ******************/
 
 
@@ -31,7 +32,7 @@ class EarthQuestion {
     this.stamp = stamp;
   }
 
-  /* Draw images using stamp function, rotate and scale
+  //Draw images using stamp function, rotate and scale
    display (){
     push();
     translate(this.x,this.y);
@@ -39,11 +40,11 @@ class EarthQuestion {
     scale(this.stampSize);
     image(this.stampImage,0,0);
     pop();
-  }*/
+  }
 }
 
-data.push(new EarthQuestion("Are you from planet Earth","Best planet of the universe!","true","false","earth.png"));
-data.push(new EarthQuestion("Is the earth flat?","phewf!","true","false","startbutton.png"));
+data.push(new EarthQuestion("Are you from planet Earth?","Best planet of the universe!","true","false","earth.png"));
+data.push(new EarthQuestion("Is the earth flat?","phewf!","true","false","polarbear.png"));
 
 // Set up for introduction to experience. The button click will engage video, soundscape
 // and first question in the series
@@ -52,7 +53,7 @@ $(document).ready(function() {
   let currentQuestion = 0;
   let txt = data[0].question;
 //  let stampImage = data[0].Stamp;
-  let currentStamp = "assets/images/"+data[0].stamp;
+  let currentStamp ;
   let speed = 100;
 
   let video = document.getElementById("myVideo");
@@ -69,8 +70,8 @@ $(document).ready(function() {
     checkBoxN.addEventListener("click",negativeA);
 
 let stampContainer = document.getElementById("stampImage");
-stampContainer.src = currentStamp;
-let questionNumber =0;
+//stampContainer.src = currentStamp;
+let questionNumber = 0;
 
   //btnAnswer.addEventListener("click",playerAnswer);
   // function to play video and sound with a click for the introduction
@@ -87,7 +88,7 @@ let questionNumber =0;
     typebutton.style.display = "block";
   }
 
-  // Earth will communicate using type writer animation. If there is no answer after 9 seconds
+  // Earth will communicate using type writer animation.
 
   function typeWriter() {
     typebutton.style.display = "none";
@@ -104,7 +105,7 @@ let questionNumber =0;
   function positiveA() {
     var checkBox = document.getElementById("myCheckY");
     var text = document.getElementById("text");
-    questionNumber++;
+
     currentStamp = "assets/images/"+data[questionNumber].stamp;
     stampContainer.src = currentStamp;
     if (checkBox.checked == true){
@@ -128,26 +129,62 @@ let questionNumber =0;
   // Handle when user mouses over game shapes to drag it and make it draggable
 // code - parts of Beach Party by Pippin Barr but altered code
 
-$('#content').on('mouseover', function () {
+$('#content').on('mouseover', '.masterImage', function () {
     $(this).draggable({
       // The start property takes a function that is called when dragging starts
       start: function () {
         console.log (this);
         // Create function for each object to be draggable
-        if ($(this).hasClass("bauhaus")) {
-          $('#content').append('<div class="master bauhaus"><img src="assets/images/bauhaus.png" alt=""></div>');
-        }
-
-
-
+        // if ($(this).hasClass("stamp")) {
+        //   currentStamp = "assets/images/"+data[questionNumber].stamp;
+        //   $('#content').append(' <div class="masterImage stamp"><img id = "stampImage" src="' + currentStamp+'" alt=""></div>');
+        // }
+        // Remove master class from the dragged shape
+        // $(this).removeClass('masterImage');
+        // console.log($(this));
       },
-      // Remove the master class of the dragged circle so user can click on circle and they will explode
-      // leaving the master in place
-
     });
   });
 
+  $('#content').on('mouseup', '.masterImage', function () {
+    console.log ("mouseup");
+    $(this).draggable('disable');
 
+    //resets for the next question
+    resetNextQuestion();
+    });
+
+
+    // Calculates currrent question and then resets for the next question
+    function resetNextQuestion() {
+      i=0;
+      questionNumber++;
+      //gameOver();
+      txt = data[questionNumber].question;
+      document.getElementById("demo").innerHTML ="";
+      typeWriter();
+    }
+
+
+/*function handleInput() {
+  if(keyIsDown(RIGHT_ARROW)) {
+    currentStamp.stampAngle += 0.1;
+  }
+  if(keyIsDown(UP_ARROW)) {
+    currentStamp.stampSize += 0.1;
+  }
+  if(keyIsDown(DOWN_ARROW)) {
+    currentStamp.stampSize -= 0.1;
+  }
+  if(keyIsDown(SHIFT)) {
+    mushroomArray.push(new Mushroom(random(width),random(height),random(10),random(10),40,40));
+  }
+}
+
+// mouseClick triggers envelope
+function mouseClicked() {
+  // is mouse over canvas?
+}*/
 
 
 
@@ -166,15 +203,7 @@ $('#content').on('mouseover', function () {
 // set up for Responsive Voice
 
 
-  // Calculates currrent question and then resets for the next question
-  function resetNextQuestion() {
-    i=0;
-    currentQuestion += 1;
-    gameOver();
-    txt = questions[currentQuestion];
-    document.getElementById("demo").innerHTML ="";
-    typeWriter();
-  }
+
 
 
 

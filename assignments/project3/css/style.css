@@ -27,7 +27,7 @@ html, body {
 	height:100%;
 }
 
-.content {
+.innerContent {
 	position: absolute;
 	font-family: 'Audiowide';
 	color: 	#9370DB;
@@ -41,14 +41,14 @@ html, body {
 	z-index: 99;
 	transition: all .3s;
 }
-.content img{
+.innerContent img{
 	padding: 10px;
 	width: 50%;
 	height: auto;
 }
 
-.content:hover {
-}
+.innerContent:hover {
+} 
 
 /* Starting button for first question from Earth*/
 .questionEarth {
@@ -78,3 +78,8 @@ html, body {
 	padding: 20px;
 	width: 500px;
 }
+
+/* .checkAnswer {
+	position: fixed;
+
+} */
