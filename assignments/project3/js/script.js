@@ -11,6 +11,7 @@ author, and this description to match your project!
 button photo: https://unsplash.com/photos/BPiQ25xU6ak
 earth photo: https://www.nasa.gov/topics/earth/index.html
 polar bear: https://defenders.org/climate-change/overview
+mountain: Kalen Emsley https://unsplash.com/photos/Bkci_8qcdvQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 ******************/
 
 
@@ -45,6 +46,7 @@ class EarthQuestion {
 
 data.push(new EarthQuestion("Are you from planet Earth?","Best planet of the universe!","true","false","earth.png"));
 data.push(new EarthQuestion("Is the earth flat?","phewf!","true","false","polarbear.png"));
+data.push(new EarthQuestion("Do scientists agree on climate change?","A vast majority do","true","false","mountain.png"));
 
 // Set up for introduction to experience. The button click will engage video, soundscape
 // and first question in the series
@@ -52,7 +54,7 @@ $(document).ready(function() {
   let i = 0;
   let currentQuestion = 0;
   let txt = data[0].question;
-//  let stampImage = data[0].Stamp;
+
   let currentStamp ;
   let speed = 100;
 
@@ -98,9 +100,6 @@ let questionNumber = 0;
       i++;
       setTimeout(typeWriter, speed);
     }
-    //else{
-    //console.log("finished typing");
-    //timer = setTimeout(gawdWaiting, 9000);
   }
 
   function positiveA() {
@@ -177,29 +176,6 @@ $('#content').on('mouseover', '.masterImage', function () {
       document.getElementById("demo").innerHTML ="";
       typeWriter();
     }
-
-
-/*function handleInput() {
-  if(keyIsDown(RIGHT_ARROW)) {
-    currentStamp.stampAngle += 0.1;
-  }
-  if(keyIsDown(UP_ARROW)) {
-    currentStamp.stampSize += 0.1;
-  }
-  if(keyIsDown(DOWN_ARROW)) {
-    currentStamp.stampSize -= 0.1;
-  }
-  if(keyIsDown(SHIFT)) {
-    mushroomArray.push(new Mushroom(random(width),random(height),random(10),random(10),40,40));
-  }
-}
-
-// mouseClick triggers envelope
-function mouseClicked() {
-  // is mouse over canvas?
-}*/
-
-
 
 
 
