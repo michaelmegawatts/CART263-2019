@@ -70,6 +70,7 @@ $(document).ready(function() {
     checkBoxN.addEventListener("click",negativeA);
 
 let stampContainer = document.getElementById("stampImage");
+
 //stampContainer.src = currentStamp;
 let questionNumber = 0;
 
@@ -103,17 +104,17 @@ let questionNumber = 0;
   }
 
   function positiveA() {
+    console.log("checked");
     var checkBox = document.getElementById("myCheckY");
     var text = document.getElementById("text");
-
-    currentStamp = "assets/images/"+data[questionNumber].stamp;
-    stampContainer.src = currentStamp;
     if (checkBox.checked == true){
-      text.style.display = "block";
-      //Stamp.push();
-    } else {
-       text.style.display = "none";
-    }
+       text.style.display = "block";
+     } else {
+        text.style.display = "none";
+     }
+     currentStamp = "assets/images/"+data[questionNumber].stamp;
+     stampContainer.src = currentStamp;
+         $("#draggableImageContainer").css({ display:'block'});
   }
 
   function negativeA() {
@@ -124,6 +125,9 @@ let questionNumber = 0;
     } else {
        text.style.display = "none";
     }
+    currentStamp = "assets/images/"+data[questionNumber].stamp;
+    stampContainer.src = currentStamp;
+        $("#draggableImageContainer").css({ display:'block'});
   }
 
   // Handle when user mouses over game shapes to drag it and make it draggable
@@ -139,6 +143,7 @@ $('#content').on('mouseover', '.masterImage', function () {
         //   currentStamp = "assets/images/"+data[questionNumber].stamp;
         //   $('#content').append(' <div class="masterImage stamp"><img id = "stampImage" src="' + currentStamp+'" alt=""></div>');
         // }
+
         // Remove master class from the dragged shape
         // $(this).removeClass('masterImage');
         // console.log($(this));
@@ -148,16 +153,24 @@ $('#content').on('mouseover', '.masterImage', function () {
 
   $('#content').on('mouseup', '.masterImage', function () {
     console.log ("mouseup");
-    $(this).draggable('disable');
+  //  $(this).draggable('disable');
+   let previousPos = $(this).position();
+   console.log(previousPos);
 
     //resets for the next question
-    resetNextQuestion();
+    resetNextQuestion(previousPos);
+    $('#draggableImageContainer').css({bottom: 0, left: 0, display:'none'});
     });
 
 
     // Calculates currrent question and then resets for the next question
-    function resetNextQuestion() {
+    function resetNextQuestion(previousPos) {
+      console.log( "in reset"+previousPos.top)
       i=0;
+      let img = $('<img />').attr({
+            'src': currentStamp,
+        }).appendTo('#content').css({top: previousPos.top, left: previousPos.left, position:'absolute'});
+
       questionNumber++;
       //gameOver();
       txt = data[questionNumber].question;
