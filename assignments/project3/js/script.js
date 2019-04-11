@@ -43,8 +43,13 @@ class EarthQuestion {
 }
 
 data.push(new EarthQuestion("Are you from planet Earth?","Best planet of the universe!","true","false","mountain.png"));
-data.push(new EarthQuestion("Is the earth flat?","phewf!","true","false","polarbear.png"));
-data.push(new EarthQuestion("Do scientists agree on climate change?","A vast majority do","true","false","earth.png"));
+data.push(new EarthQuestion("Is the earth flat?","phewf, you may continue to exist!","true","false","polarbear.png"));
+data.push(new EarthQuestion("Do scientists agree on climate change?","Yes, the vast majority of actively publishing climate scientists – 97 percent – agree that humans are causing global warming and climate change.","true","false","earth.png"));
+data.push(new EarthQuestion("Is the sun causing global warming?","No. The Sun can influence the Earth’s climate, but it isn’t responsible for the warming trend we’ve seen over the past few decades.","true","false","sun.png"));
+data.push(new EarthQuestion("Is the ocean continuing to warm?","​Yes, the ocean is continuing to warm. Notably, all ocean basins have been experiencing significant warming since 1998, with more heat being transferred deeper into the ocean since 1990.","true","false","iceberg.png"));
+data.push(new EarthQuestion("Is the ozone hole causing climate change?","Yes and no. The ozone hole is not causing global warming, but it is affecting atmospheric circulation","true","false","ozone.png"));
+data.push(new EarthQuestion("Is it too late to prevent climate change?","Humans have caused major climate changes to happen already, and we have set in motion more changes still. Even if we stopped emitting greenhouse gases today, global warming would continue to happen for at least several more decades, if not centuries.","true","false","adameve.png"));
+
 
 // Set up for introduction to experience. The button click will engage video, soundscape
 // and first question in the series
