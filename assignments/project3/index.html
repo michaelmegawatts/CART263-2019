@@ -29,33 +29,38 @@
 
 <body>
   <!-- HTML would go here if needed. -->
-  <div class="checkAnswer">
-    Checkbox Yes: <input type="checkbox" id="myCheckY">
-    <p id="text" style="display:none">Checkbox is CHECKED!</p>
 
-    Checkbox No: <input type="checkbox" id="myCheckN">
-    <p id="text" style="display:none">Checkbox is CHECKED!</p>
-    </div>
 
 <section id="content">
+
+  <div class="checkAnswer">
+    Agree: <input type="checkbox" id="myCheckY">
+    <p id="text" style="display:none">Checkbox is CHECKED!</p>
+
+    Disagree: <input type="checkbox" id="myCheckN">
+    <p id="text" style="display:none">Checkbox is CHECKED!</p>
+  </div>
+
   <!-- Set up for video background -->
+<div class="videoContainer">
   <video width="320" height="240" id="myVideo">
 		<source src="assets/video/bgvideo.mp4" type="video/mp4">
 		<source src="movie.ogg" type="video/ogg">
 	</video>
+  </div>
 
   <!-- Introduction button to start video -->
   <section id="intro">
     <div class="innerContent">
-			<h1>Puzzle time!</h1>
-			<p>click to puzzle ↓↓↓ </p>
+			<h1>Earth Collage time!</h1>
+			<p>click to collage away ↓↓↓ </p>
 			<img id = "clickMe" src="assets/images/earth.png" alt="">
 		</div>
   </section>
 
   <!-- Button that initiates questions from Earth-->
   <div class ="questionEarth">
-    <button id = "typebutton"> Click to start </button>
+    <button id = "typebutton"> But first, check a box to get a stamp </button>
     <p id="demo"></p>
   </div>
 
