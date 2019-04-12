@@ -3,7 +3,10 @@ Project description and credits
 sources: https://climate.nasa.gov/faq/
 https://www.earthday.org/climate-change-quiz/
 
+Earth Video: edited by Michael Watts
+source: https://pixabay.com/videos/earth-globe-sea-trenches-9183/
 
+Images:
 button photo: https://unsplash.com/photos/BPiQ25xU6ak
 earth photo: https://www.nasa.gov/topics/earth/index.html
 polar bear: https://defenders.org/climate-change/overview

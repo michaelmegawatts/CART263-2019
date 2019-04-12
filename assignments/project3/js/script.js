@@ -71,10 +71,10 @@ $(document).ready(function() {
   typebutton.style.display = "none";
   btnImg.addEventListener("click",gameStart);
 
-  let checkBoxY = document.getElementById("myCheckY");
-  checkBoxY.addEventListener("click",positiveA);
-  let checkBoxN = document.getElementById("myCheckN");
-  checkBoxN.addEventListener("click",negativeA);
+  let clickButtonY = document.getElementById("myClickY");
+  clickButtonY.addEventListener("click",positiveA);
+  let clickButtonN = document.getElementById("myClickN");
+  clickButtonN.addEventListener("click",negativeA);
 
   let stampContainer = document.getElementById("stampImage");
 
@@ -104,14 +104,10 @@ $(document).ready(function() {
 
   // Set up response for user... considered "positive" or Agree as a checkbox
   function positiveA() {
-    console.log("checked");
-    var checkBox = document.getElementById("myCheckY");
+    console.log("clicked");
+    var clickButton = document.getElementById("myClickY");
     var text = document.getElementById("text");
-    if (checkBox.checked == true){
-      text.style.display = "block";
-    } else {
-      text.style.display = "none";
-    }
+
     console.log(data[earthAnswer].answer);
     speakAnswer(data[earthAnswer].answer);
     currentStamp = "assets/images/"+data[questionNumber].stamp;
@@ -121,13 +117,9 @@ $(document).ready(function() {
 
 // Set up response for user... considered "negative" or Disagree as a checkbox
   function negativeA() {
-    var checkBox = document.getElementById("myCheckN");
+    var clickButton = document.getElementById("myClickN");
     var text = document.getElementById("text");
-    if (checkBox.checked == true){
-      text.style.display = "block";
-    } else {
-      text.style.display = "none";
-    }
+
     console.log(data[earthAnswer].answer);
     speakAnswer(data[earthAnswer].answer);
     currentStamp = "assets/images/"+data[questionNumber].stamp;
@@ -179,6 +171,9 @@ $(document).ready(function() {
 
   }
 
+  // $( function() {
+  //   $( "#dialog" ).dialog();
+  // } );
 
 
 });
