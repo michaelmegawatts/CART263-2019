@@ -42,17 +42,18 @@ height:100%;
 	color: 	#9370DB;
 	text-align:center;
 	line-height: 1.6;
-	font-size: 27px;
-	width: 550px;
-	top: 5%;
-	left: 35%;
+	font-size: 33px;
+	text-shadow: 1px 1px 2px black;
+	width: 800px;
+	top: 10%;
+	left: 30%;
 	padding: 0px;
 	z-index: 99;
 	transition: all .3s;
 }
 .innerContent img{
 	padding: 10px;
-	width: 50%;
+	width: 70%;
 	height: auto;
 }
 
@@ -62,9 +63,10 @@ height:100%;
 /* Starting button for first question from Earth*/
 .questionEarth {
 	position: fixed;
+	text-shadow: 1px 1px 2px black;
 	top: 1%;
-	left: 29%;
-	width: 700px;
+	left: 31%;
+	width: 800px;
 	height: 200px;
 	padding: 0px;
 	z-index: 99;
@@ -72,6 +74,8 @@ height:100%;
 
 #typebutton {
 	font-family: 'Audiowide';
+	background: #9370DB;
+	box-shadow: 1px 1px 2px black;
 	font-size: 15px;
 	line-height: 1.6;
 	margin: 20px 170px;
@@ -92,6 +96,7 @@ height:100%;
 	position: fixed;
 	font-family: 'Audiowide';
 	background: #9370DB;
+	box-shadow: 1px 1px 2px black;
 	opacity: 0.75;
 	margin: 20px 20px;
 	padding: 20px;
