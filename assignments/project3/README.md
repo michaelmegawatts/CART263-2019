@@ -6,6 +6,7 @@ National Geographic - https://news.nationalgeographic.com/2018/02/polar-bears-st
 King Country - https://kingcounty.gov/depts/dnrp/solid-waste/programs/climate/climate-change-recycling.aspx
 Guardian: https://www.theguardian.com/environment/2019/mar/26/climate-change-denial-is-evil-says-mary-robinson
 Clean air: https://www.unenvironment.org/news-and-stories/story/right-breathe-clean-air
+Animal farts: https://www.forbes.com/sites/samlemonick/2017/09/29/scientists-underestimated-how-bad-cow-farts-are/#27c5eaaa78a9
 
 Earth Video: edited by Michael Watts
 source: https://pixabay.com/videos/earth-globe-sea-trenches-9183/
@@ -26,3 +27,7 @@ spaceship house: http://roadsidewonders.net/delaware-spaceship-house/
 mask: https://www.pinterest.ca/pin/303359724894765618/
 puppy: https://oshiprint.in/posters/animals/cute-puppy-3
 burger: https://bluewater.co.uk/food-and-drink
+bee: https://www.omlet.ie/breeds/bees/bumblebee
+kid: https://www.pinterest.ca/mom4164/mean-looking-kids-really-mean/
+cow: https://www.trtworld.com/americas/cow-farts-and-climate-change-3872
+tree hugger: https://tenor.com/search/superstar-mollyshannon-gifs

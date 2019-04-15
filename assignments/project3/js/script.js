@@ -36,13 +36,17 @@ data.push(new EarthQuestion("Are you from planet Earth?","Best planet of the uni
 data.push(new EarthQuestion("Do you think Earth is a nice place?","even in the freezing winter, huh?","true","false","spaceshiphouse.png"));
 data.push(new EarthQuestion("Is it important to have clean air?","Clean air is fundamental to healthy human life","true","false","mask.png"));
 data.push(new EarthQuestion("Is the earth flat?","phewf, you may continue to exist!","true","false","flatearth.jpg"));
+data.push(new EarthQuestion("Only Liberals, Democrats, and tree huggers believe in climate change","Who knows. But sadly many conservatives and republicans deny climate change. Ask the Trump and Andrew Scheer","true","false","treehugger.png"));
 data.push(new EarthQuestion("Is climate change a hoax?","The denial of climate change is not just ignorant, but malign and evil because it denies the human rights of the most vulnerable people on the planet","true","false","denial.jpg"));
-data.push(new EarthQuestion("Do you have pets?","So do I, but not cats","true","false","puppy.jpg"));
-data.push(new EarthQuestion("Do you enjoy eating tasty food?","Extra bacon please! gimme gimme gimme","true","false","burger.jpg"));
+data.push(new EarthQuestion("Do you have pets?","So do I, but not cats. I don't like cats","true","false","puppy.jpg"));
 data.push(new EarthQuestion("Do scientists agree on climate change?","Yes, the vast majority of actively publishing climate scientists – 97 percent – agree that humans are causing global warming and climate change.","true","false","earth.png"));
+data.push(new EarthQuestion("Do you enjoy eating tasty food?","Extra bacon please! gimme gimme gimme","true","false","burger.jpg"));
+data.push(new EarthQuestion("Bees are so useless for the ecosystem, right?","As pollinators, bees play a part in every aspect of the ecosystem. They support the growth of trees, flowers, and other plants, which serve as food and shelter for creatures large and small","true","false","bee.png"));
 data.push(new EarthQuestion("Is the sun causing global warming?","No. The Sun can influence the Earth’s climate, but it isn’t responsible for the warming trend we’ve seen over the past few decades.","true","false","sun.png"));
 data.push(new EarthQuestion("Is the ocean continuing to warm?","​Yes, the ocean is continuing to warm. Notably, all ocean basins have been experiencing significant warming since 1998, with more heat being transferred deeper into the ocean since 1990.","true","false","iceberg.png"));
+data.push(new EarthQuestion("Should current generations care for the earth for future generations to come","A baby boomer might say no, but we know they are wrong","true","false","kid.png"));
 data.push(new EarthQuestion("Is the ozone hole causing climate change?","Yes and no. The ozone hole is not causing global warming, but it is affecting atmospheric circulation","true","false","ozone.png"));
+data.push(new EarthQuestion("Are cow farts causing climate change?","Yes. Animal farts and poop are major contributors to global warming. It turns out we might have been underestimating just how much","true","false","cow.png"));
 data.push(new EarthQuestion("Is it too late to prevent climate change?","Humans have caused major climate changes to happen already, and we have set in motion more changes still. Even if we stopped emitting greenhouse gases today, global warming would continue to happen for at least several more decades, if not centuries.","true","false","adameve.png"));
 data.push(new EarthQuestion("Are polar bears and other animals at risk because of global warming?","Because of melting sea ice, it is likely that more polar bears will soon starve, warns a new study that discovered the large carnivores need to eat 60 percent more than anyone had realized","true","false","polarbear.png"));
 data.push(new EarthQuestion("Does recycling help climate change?","Recycling helps reduce greenhouse gas emissions by reducing energy consumption","true","false","recycle.png"));
@@ -136,7 +140,7 @@ $(document).ready(function() {
 
   $('#content').on('mouseup', '.masterImage', function () {
     console.log ("mouseup");
-    //  $(this).draggable('disable');
+    //
     let previousPos = $(this).position();
     console.log(previousPos);
 
@@ -166,6 +170,8 @@ $(document).ready(function() {
     earthAnswer++;
 
   }
+
+
 
 // function dialogBox () {
 //   $( function() {

@@ -116,6 +116,7 @@ height:100%;
 	left: 1%;
 }
 
-#dialogBox {
-
+.datepicker {
+	top: 80%;
+	left: 3%;
 }
