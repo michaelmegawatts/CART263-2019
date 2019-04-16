@@ -16,26 +16,36 @@ const data = []
 
 let zIndex = 0;
 
-// An array for video and website links
+// An array for video and website links in dialog boxes that will appear
 let dialogBox = [
-  "Look at me now! https://climate.nasa.gov/earth-now/",
-  "Flat earthers are real. Just watch. https://www.youtube.com/watch?v=4ylYvNnP1rg",
-  "Our leaders are climate change deniers. Just watch! https://www.youtube.com/watch?v=ZqdYe2uyCLs",
-  "Cats are jerks. Just watch. https://www.youtube.com/watch?v=O1KW3ZkLtuo",
-  "Sunbathing is sexy, just watch! https://www.youtube.com/watch?v=7CmFpkHIB9s",
-  "Are you woke? Just watch! https://vimeo.com/276940268",
-  "Farts are destroying the planet. Just watch! https://www.youtube.com/watch?v=26qzmw_xG58",
-  "Do you actually know how to recycle? Just watch! https://www.youtube.com/watch?v=b7GMpjx2jDQ",
+  "Look at me now!",
+  "https://climate.nasa.gov/earth-now/",
+  "Flat earthers are real. Just watch!",
+  "https://www.youtube.com/watch?v=ecfqbWCiZSA",
+  "Our leaders are climate change deniers. Don't believe me? Just watch!",
+  "https://www.youtube.com/watch?v=ZqdYe2uyCLs",
+  "Cats are jerks. Just watch",
+  "https://www.youtube.com/watch?v=O1KW3ZkLtuo",
+  "Sunbathing is sexy, just watch!",
+  "https://www.youtube.com/watch?v=7CmFpkHIB9s",
+  "Are you woke? Just watch!",
+  "https://vimeo.com/276940268",
+  "Farts are destroying the planet. Just watch!",
+  "https://www.youtube.com/watch?v=26qzmw_xG58",
+  "Do you actually know how to recycle? Just watch!",
+  "https://www.youtube.com/watch?v=b7GMpjx2jDQ",
 
 ];
 
 // Class for series of questions
 class EarthQuestion {
-  constructor(question,answer,dialogbox,stamp) {
+  constructor(question,answer,dialogboxtext,dialogboxlink,stamp) {
     this.question = question;
     this.answer = answer;
-    this.dialogbox = dialogbox;
+    this.dialogboxtext = dialogboxtext;
+    this.dialogboxlink = dialogboxlink;
     this.stamp = stamp;
+
   }
 
   // Updates stamp function images
@@ -44,24 +54,25 @@ class EarthQuestion {
   }
 }
 
-data.push(new EarthQuestion("Are you from planet Earth?","Best planet of the universe!","","mountain.png"));
-data.push(new EarthQuestion("Do you think Earth is a nice place?","even in the freezing winter, huh?","","spaceshiphouse.png"));
-data.push(new EarthQuestion("Is it important to have clean air?","Clean air is fundamental to healthy human life","","mask.png"));
-data.push(new EarthQuestion("Is the earth flat?","phewf, you may continue to exist!","","flatearth.jpg"));
-data.push(new EarthQuestion("Only Liberals, Democrats, and tree huggers believe in climate change","Who knows. But sadly many conservatives and republicans deny climate change. Ask the Trump and Andrew Scheer","","treehugger.png"));
-data.push(new EarthQuestion("Is climate change a hoax?","The denial of climate change is not just ignorant, but malign and evil because it denies the human rights of the most vulnerable people on the planet","","denial.jpg"));
-data.push(new EarthQuestion("Do you have pets?","So do I, but not cats. I don't like cats","true","false","puppy.png"));
-data.push(new EarthQuestion("Do scientists agree on climate change?","Yes, the vast majority of actively publishing climate scientists – 97 percent – agree that humans are causing global warming and climate change.","","earth.png"));
-data.push(new EarthQuestion("Do you enjoy eating tasty food?","Extra bacon please! gimme gimme gimme","","burger.png"));
-data.push(new EarthQuestion("Bees are so useless for the ecosystem, right?","As pollinators, bees play a part in every aspect of the ecosystem. They support the growth of trees, flowers, and other plants, which serve as food and shelter for creatures large and small","","bee.png"));
-data.push(new EarthQuestion("Is the sun causing global warming?","No. The Sun can influence the Earth’s climate, but it isn’t responsible for the warming trend we’ve seen over the past few decades.","","sun.png"));
-data.push(new EarthQuestion("Is the ocean continuing to warm?","​Yes, the ocean is continuing to warm. Notably, all ocean basins have been experiencing significant warming since 1998, with more heat being transferred deeper into the ocean since 1990.","","iceberg.png"));
-data.push(new EarthQuestion("Should current generations care for the earth for future generations to come","A baby boomer might say no, but we know they are wrong","","kid.png"));
-data.push(new EarthQuestion("Is the ozone hole causing climate change?","Yes and no. The ozone hole is not causing global warming, but it is affecting atmospheric circulation","","ozone.png"));
-data.push(new EarthQuestion("Are cow farts causing climate change?","Yes. Animal farts and poop are major contributors to global warming. It turns out we might have been underestimating just how much","","cow.png"));
-data.push(new EarthQuestion("Is it too late to prevent climate change?","Humans have caused major climate changes to happen already, and we have set in motion more changes still. Even if we stopped emitting greenhouse gases today, global warming would continue to happen for at least several more decades, if not centuries.","","adameve.png"));
-data.push(new EarthQuestion("Are polar bears and other animals at risk because of global warming?","Because of melting sea ice, it is likely that more polar bears will soon starve, warns a new study that discovered the large carnivores need to eat 60 percent more than anyone had realized","","polarbear.png"));
-data.push(new EarthQuestion("Does recycling help climate change?","Recycling helps reduce greenhouse gas emissions by reducing energy consumption","","recycle.png"));
+data.push(new EarthQuestion("Are you from planet Earth?","Best planet of the universe!","","","mountain.png"));
+data.push(new EarthQuestion("Do you think Earth is a nice place?","even in the freezing winter, huh?",dialogBox[0],dialogBox[1],"spaceshiphouse.png"));
+data.push(new EarthQuestion("Is it important to have clean air?","Clean air is fundamental to healthy human life","","","mask.png"));
+data.push(new EarthQuestion("Is the earth flat?","phewf, you may continue to exist!",dialogBox[2],dialogBox[3],"flatearth.jpg"));
+data.push(new EarthQuestion("Do humans cause climate change?","you bet!","","","adameve.png"));
+data.push(new EarthQuestion("Only Liberals, Democrats, and tree huggers believe in climate change","Who knows. But sadly many conservatives and republicans deny climate change. Ask the Trump and Andrew Scheer","","","treehugger.png"));
+data.push(new EarthQuestion("Is climate change a hoax?","The denial of climate change is not just ignorant, but malign and evil because it denies the human rights of the most vulnerable people on the planet",dialogBox[4],dialogBox[5],"denial.jpg"));
+data.push(new EarthQuestion("Do you have pets?","So do I, but not cats. I don't like cats",dialogBox[6],dialogBox[7],"puppy.png"));
+data.push(new EarthQuestion("Do scientists agree on climate change?","Yes, the vast majority of actively publishing climate scientists – 97 percent – agree that humans are causing global warming and climate change.","","","earth.png"));
+data.push(new EarthQuestion("Do you enjoy eating tasty food?","Extra bacon please! gimme gimme gimme","","","burger.png"));
+data.push(new EarthQuestion("Bees are so useless for the ecosystem, right?","As pollinators, bees play a part in every aspect of the ecosystem. They support the growth of trees, flowers, and other plants, which serve as food and shelter for creatures large and small","","","bee.png"));
+data.push(new EarthQuestion("Is the sun causing global warming?","No. The Sun can influence the Earth’s climate, but it isn’t responsible for the warming trend we’ve seen over the past few decades.",dialogBox[8],dialogBox[9],"sun.png"));
+data.push(new EarthQuestion("Is the ocean continuing to warm?","​Yes, the ocean is continuing to warm. Notably, all ocean basins have been experiencing significant warming since 1998, with more heat being transferred deeper into the ocean since 1990.","","","iceberg.png"));
+data.push(new EarthQuestion("Should current generations care for the earth for future generations to come?","A baby boomer might say no, but we know they are wrong",dialogBox[10],dialogBox[11],"kid.png"));
+data.push(new EarthQuestion("Is the ozone hole causing climate change?","Yes and no. The ozone hole is not causing global warming, but it is affecting atmospheric circulation","","","ozone.png"));
+data.push(new EarthQuestion("Are cow farts causing climate change?","Yes. Animal farts and poop are major contributors to global warming. It turns out we might have been underestimating just how much",dialogBox[12],dialogBox[13],"cow.png"));
+data.push(new EarthQuestion("Is it too late to prevent climate change?","Humans have caused major climate changes to happen already, and we have set in motion more changes still. Even if we stopped emitting greenhouse gases today, global warming would continue to happen for at least several more decades, if not centuries.","","","rabbit.png"));
+data.push(new EarthQuestion("Are polar bears and other animals at risk because of global warming?","Because of melting sea ice, it is likely that more polar bears will soon starve, warns a new study that discovered the large carnivores need to eat 60 percent more than anyone had realized","","","polarbear.png"));
+data.push(new EarthQuestion("Does recycling help climate change?","Recycling helps reduce greenhouse gas emissions by reducing energy consumption",dialogBox[14],dialogBox[15],"recycle.png"));
 
 // Set up for introduction to experience. The button click will engage video, soundscape
 // and first question in the series
@@ -83,6 +94,10 @@ $(document).ready(function() {
   typebutton.style.display = "none";
   btnImg.addEventListener("click",gameStart);
 
+  let dialogBoxShow = data[0].dialogbox;
+    $("#dialog").dialog();
+    $("#dialog").dialog("close");
+
   // Agree and disagree buttons
    let clickButtonY = document.getElementById("myClickY");
    clickButtonY.addEventListener("click",positiveA);
@@ -91,6 +106,7 @@ $(document).ready(function() {
 
   // Contains the stamp for each image
   let stampContainer = document.getElementById("stampImage");
+
 
   // function to play video and sound with a click for the introduction
   function gameStart(){
@@ -104,6 +120,7 @@ $(document).ready(function() {
     }
     btn.style.display = "none";
     typebutton.style.display = "block";
+    //dialogBoxShow.style.display = "none";
   }
 
   // Earth will ask questions using type writer animation.
@@ -127,12 +144,27 @@ $(document).ready(function() {
     currentStamp = "assets/images/"+data[questionNumber].stamp;
     stampContainer.src = currentStamp;
     $("#draggableImageContainer").css({ display:'block', zIndex: 1});
+
+
+    if(data[questionNumber].dialogboxtext===""){
+      console.log("hide")
+      $("#dialog").dialog("close");
+    }
+    else {
+      console.log(document.getElementById("dialogLink"));
+          $("#dialog").dialog("open");
+          document.getElementById("dialogDirection").innerHTML=data[questionNumber].dialogboxtext;
+          document.getElementById("dialogLink").setAttribute("href",data[questionNumber].dialogboxlink);
+          //  $("#dialog").dialog();
+    }
+
   }
 
   // Set up response for user... considered "negative" or Disagree as a checkbox
   function negativeA() {
     var clickButton = document.getElementById("myClickN");
     var text = document.getElementById("text");
+
 
     //console.log(data[earthAnswer].answer);
     speakAnswer(data[earthAnswer].answer);
@@ -157,6 +189,7 @@ $(document).ready(function() {
     //
     let previousPos = $(this).position();
     //console.log(previousPos);
+
 
     //resets for the next question
     resetNextQuestion(previousPos);
@@ -185,9 +218,9 @@ $(document).ready(function() {
 
   }
 
-  $( function() {
-    $("#dialog").dialog();
-  } );
+  // $( function() {
+  //   $("#dialog").dialog();
+  // } );
 
 
   // <div id="dialog" title="Earth Now by Nasa">
