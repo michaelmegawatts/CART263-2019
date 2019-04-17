@@ -5,9 +5,10 @@
 Title of Project: Earth Collage
 Michael
 
-This is a template. You must fill in the title,
-author, and this description to match your project!
-
+The experience is to bring light to concerns around climate change.
+A collage game that asks you to Agree or Disagree on questions and statements.
+Each response gives a stamp to paste, followed by some words of wisdom, or sarcasm.
+Occasionally a surprise dialog box appears, with links to informative websites, articles or videos.
 
 ******************/
 
