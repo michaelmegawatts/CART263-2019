@@ -16,6 +16,14 @@ Occasionally a surprise dialog box appears, with links to informative websites, 
 const data = []
 // Property for the location of stamp Images
 let zIndex = 0;
+//let previousPos;
+//
+let voiceDone = false
+let imageStamped = false
+let dialogboxDone = false
+
+let agreeButton = false
+let disagreeButton = false
 
 // An array for video and website links in dialog boxes that will appear
 let dialogBox = [
@@ -62,7 +70,7 @@ class EarthQuestion {
 data.push(new EarthQuestion("Are you from planet Earth?","Best planet of the universe!","","","mountain.png"));
 data.push(new EarthQuestion("Have you ever played in nature?","try and think of all those wonderful moments in nature","","","lakelouise.png"));
 data.push(new EarthQuestion("Have you ever climbed a tree?","Trees are not just Christmas wrapping paper. They feed us oxygen","","","tree.png"));
-data.push(new EarthQuestion("Do you like butterflies?","Butterflies go through a life cycle. A butterfly has four stages in its life cycle.A butterfly becoming an adult is called metamorphosis. The life cycle process can take a month to year.","","","butterfly.png"));
+data.push(new EarthQuestion("Do you like butterflies?","Butterflies go through a life cycle.A butterfly becoming an adult is called metamorphosis","","","butterfly.png"));
 data.push(new EarthQuestion("Drinking fresh water is really good for your health","But not water from plastic bottles","","","freshwater.png"));
 data.push(new EarthQuestion("Do you think Earth is a nice place?","even in the freezing winter, huh?",dialogBox[0],dialogBox[1],"spaceshiphouse.png"));
 data.push(new EarthQuestion("Is it important to have clean air?","Clean air is fundamental to healthy human life","","","mask.png"));
@@ -111,6 +119,8 @@ $(document).ready(function() {
   $("#dialog").dialog(
     { close: function() {
       dialogboxSound.play();
+      // checks for when dialog box is closed
+      dialogboxDone=true;
     }
   }
 );
@@ -154,6 +164,10 @@ function typeWriter() {
 
 // Set up response for user... considered Agree button
 function positiveA() {
+  if (agreeButton === false) {
+    agreeButton = true;
+    disagreeButton = true;
+
   var clickButton = document.getElementById("myClickY");
   var text = document.getElementById("text");
 
@@ -164,6 +178,7 @@ function positiveA() {
   $("#draggableImageContainer").css({ display:'block', zIndex: 1});
   //test to see if dialog box is being called
   if(data[questionNumber].dialogboxtext===""){
+    dialogboxDone = true
     console.log("hide")
     $("#dialog").dialog("close");
   }
@@ -172,11 +187,14 @@ function positiveA() {
     $("#dialog").dialog("open");
     document.getElementById("dialogDirection").innerHTML=data[questionNumber].dialogboxtext;
     document.getElementById("dialogLink").setAttribute("href",data[questionNumber].dialogboxlink);
+    }
   }
 }
-
 // Set up response for user... considered Disagree button
 function negativeA() {
+  if (disagreeButton === false) {
+    disagreeButton = true;
+    agreeButton = true;
   var clickButton = document.getElementById("myClickN");
   var text = document.getElementById("text");
 
@@ -187,6 +205,7 @@ function negativeA() {
   $("#draggableImageContainer").css({ display:'block', zIndex: 1});
   //test to see if dialog box is being called
   if(data[questionNumber].dialogboxtext===""){
+    dialogboxDone = true
     console.log("hide")
     $("#dialog").dialog("close");
   }
@@ -195,9 +214,9 @@ function negativeA() {
     $("#dialog").dialog("open");
     document.getElementById("dialogDirection").innerHTML=data[questionNumber].dialogboxtext;
     document.getElementById("dialogLink").setAttribute("href",data[questionNumber].dialogboxlink);
+    }
   }
 }
-
 // Handle draggable when user mouses over game shapes to drag it and make it draggable
 // code - parts of Beach Party by Pippin Barr but altered code
 $('#content').on('mouseover', '.masterImage', function() {
@@ -210,19 +229,28 @@ $('#content').on('mouseover', '.masterImage', function() {
 
 $('#content').on('mouseup', '.masterImage', function () {
   // Checks for previous stamp image position
-  let previousPos = $(this).position();
+let previousPos = $(this).position();
+  // checks for when image is stamped
+  imageStamped=true;
 
+  let img = $('<img />').attr({
+    'src': currentStamp,
+  }).appendTo('#content').css({top: previousPos.top, left: previousPos.left, position:'absolute'});
   //resets for the next question
-  resetNextQuestion(previousPos);
   $('#draggableImageContainer').css({bottom: 0, left: 0, display:'none'});
 });
 
 // Calculates currrent question and then resets for the next question. Checks for previous stamp position
-function resetNextQuestion(previousPos) {
+function resetNextQuestion() {
+  voiceDone = false
+  imageStamped = false
+  dialogboxDone = false
+  agreeButton = false
+  disagreeButton = false
   i=0;
-  let img = $('<img />').attr({
+  /*let img = $('<img />').attr({
     'src': currentStamp,
-  }).appendTo('#content').css({top: previousPos.top, left: previousPos.left, position:'absolute'});
+  }).appendTo('#content').css({top: previousPos.top, left: previousPos.left, position:'absolute'});*/
   questionNumber++;
   txt = data[questionNumber].question;
   document.getElementById("demo").innerHTML ="";
@@ -231,8 +259,21 @@ function resetNextQuestion(previousPos) {
 
 // Calls Earth voice to speak some truth about climate change with a fancy accent
 function speakAnswer(earthVoice) {
-  responsiveVoice.speak(earthVoice,'UK English Male');
+  responsiveVoice.speak(earthVoice,'UK English Male',{onend: function (){
+    console.log("sounddone")
+    // checks for when voice is done
+    voiceDone=true;
+  }
+});
   earthAnswer++;
 }
+
+// Checks if all actions are complet before going to next question
+setInterval(function(){
+if (voiceDone === true && imageStamped === true && dialogboxDone === true) {
+  console.log("change question")
+  resetNextQuestion();
+  }
+}, 10);
 
 });
