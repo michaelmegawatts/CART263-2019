@@ -16,12 +16,12 @@ Occasionally a surprise dialog box appears, with links to informative websites, 
 const data = []
 // Property for the location of stamp Images
 let zIndex = 0;
-//let previousPos;
-//
+
+//set up for when actions need to be activated or turned off
 let voiceDone = false
 let imageStamped = false
 let dialogboxDone = false
-
+//set up for buttons to be activated or turned off
 let agreeButton = false
 let disagreeButton = false
 
@@ -79,7 +79,7 @@ data.push(new EarthQuestion("Do humans cause climate change?","you bet!","","","
 data.push(new EarthQuestion("Only Liberals, Democrats, and tree huggers believe in climate change","Who knows. But sadly many conservatives and republicans deny climate change. Ask the Trump and Andrew Scheer","","","treehugger.png"));
 data.push(new EarthQuestion("Is climate change a hoax?","The denial of climate change is not just ignorant, but malign and evil because it denies the human rights of the most vulnerable people on the planet",dialogBox[4],dialogBox[5],"denial.jpg"));
 data.push(new EarthQuestion("Do you have pets?","So do I, but not cats. I don't like cats",dialogBox[6],dialogBox[7],"puppy.png"));
-data.push(new EarthQuestion("Do scientists agree on climate change?","Yes, the vast majority of actively publishing climate scientists – 97 percent – agree that humans are causing global warming and climate change.","","","earth.png"));
+data.push(new EarthQuestion("Do scientists agree on climate change?","Yes, the vast majority of actively publishing climate scientists 97 percent agree that humans are causing global warming and climate change.","","","earth.png"));
 data.push(new EarthQuestion("Do you enjoy eating tasty food?","Extra bacon please! gimme gimme gimme","","","burger.png"));
 data.push(new EarthQuestion("Bees are so useless for the ecosystem, right?","As pollinators, bees play a part in every aspect of the ecosystem. They support the growth of trees, flowers, and other plants, which serve as food and shelter for creatures large and small","","","bee.png"));
 data.push(new EarthQuestion("Is the sun causing global warming?","No. The Sun can influence the Earth’s climate, but it isn’t responsible for the warming trend we’ve seen over the past few decades.",dialogBox[8],dialogBox[9],"sun.png"));
@@ -93,6 +93,7 @@ data.push(new EarthQuestion("Does recycling help climate change?","Recycling hel
 data.push(new EarthQuestion("Did dinosaurs cause climate change?","Well, yes! Like modern-day ruminants, giant plant-eating dinosaurs likely had microbes in their guts that gave off large amounts of methane, a potent greenhouse gas even more effective at trapping heat than carbon dioxide","","","dinosaur.png"));
 data.push(new EarthQuestion("Will a carbon tax benefit society and the environment?","The idea behind a carbon tax is to make companies pay for greenhouse gas emissions that they ordinarily pump into the atmosphere for free",dialogBox[16],dialogBox[17],"carbontax.png"));
 data.push(new EarthQuestion("The earth will be uninhabitable in 50 years","Wrong. We don't actually know but it doesn't mean we should ignore the consequences of our actions. There is only one Earth, and Mars isn't as sexy as Earth!","","","tomhardy.png"));
+data.push(new EarthQuestion("Now how do you feel about Earth?","someone kill that stupid bird a a a a a a apocalypse shit fuck crap die cow bastard ha ha ha ha ha ha ha hilarious apocalypse shit fuck crap die cow bastard ha ha ha ha ha ha ha hilarious apocalypse shit fuck crap die cow bastard ha ha ha ha ha ha ha hilarious apocalypse ","","","gameover.png"));
 
 // Set up for introduction to experience. The button click will engage video, soundscape
 // and first question in the series
