@@ -11,9 +11,9 @@ author, and this description to match your project!
 
 ******************/
 
-
+// Array that contains all data for interaction
 const data = []
-
+// Property for the location of stamp Images
 let zIndex = 0;
 
 // An array for video and website links in dialog boxes that will appear
@@ -38,6 +38,7 @@ let dialogBox = [
   "https://www.theglobeandmail.com/canada/article-canadas-carbon-tax-a-guide/",
 ];
 
+// Variable for the bird chirps
 let dialogboxSound = new Audio("assets/sounds/birds.mp3");
 
 // Class for series of questions with answers, dialog boxes, links, and stamps
@@ -48,15 +49,15 @@ class EarthQuestion {
     this.dialogboxtext = dialogboxtext;
     this.dialogboxlink = dialogboxlink;
     this.stamp = stamp;
-
   }
 
-  // Updates stamp function images
+  // Updates stamp function for images
   update (stamp) {
     this.stamp = stamp;
   }
 }
 
+// Checks for the data for each interaction held in the dialogBox array and EarthQuestion class
 data.push(new EarthQuestion("Are you from planet Earth?","Best planet of the universe!","","","mountain.png"));
 data.push(new EarthQuestion("Have you ever played in nature?","try and think of all those wonderful moments in nature","","","lakelouise.png"));
 data.push(new EarthQuestion("Have you ever climbed a tree?","Trees are not just Christmas wrapping paper. They feed us oxygen","","","tree.png"));
@@ -93,9 +94,10 @@ $(document).ready(function() {
   let currentQuestion = 0;
   let currentStamp ;
   let questionNumber = 0;
+  // Allows the voice to speak for answers
   let voice = data[0].answer;
   let earthAnswer = 0;
-
+  // All actions to start experience, for the introduction and continuation of typewriter
   let video = document.getElementById("myVideo");
   let btn = document.getElementById("intro");
   let btnImg = document.getElementById("clickMe");
@@ -103,145 +105,133 @@ $(document).ready(function() {
   typebutton.addEventListener("click",typeWriter);
   typebutton.style.display = "none";
   btnImg.addEventListener("click",gameStart);
-
+  // Set up for dialog box to appear and close along with sound effect
   let dialogBoxShow = data[0].dialogbox;
   $("#dialog").dialog(
     { close: function() {
-        dialogboxSound.play();
-        }
-      }
-    );
-  $("#dialog").dialog("close");
-
-
-  // Agree (Y) and Disagree (N) buttons are clickable
-  let clickButtonY = document.getElementById("myClickY");
-  clickButtonY.addEventListener("click",positiveA);
-  let clickButtonN = document.getElementById("myClickN");
-  clickButtonN.addEventListener("click",negativeA);
-  clickButtonY.style.display = "none";
-  clickButtonN.style.display = "none";
-
-  // Contains the stamp for each image
-  let stampContainer = document.getElementById("stampImage");
-
-
-  // function to play video and sound with a click for the introduction
-  function gameStart(){
-    if(video.paused){
-      video.play();
-      video.loop = true;
-    } else {
-      video.pause();
-    }
-    btn.style.display = "none";
-    typebutton.style.display = "block";
-    clickButtonY.style.display = "block";
-    clickButtonN.style.display = "block";
-  }
-
-  // Earth will ask questions using type writer animation.
-  function typeWriter() {
-    typebutton.style.display = "none";
-    if (i < txt.length) {
-      document.getElementById("demo").innerHTML += txt.charAt(i);
-      i++;
-      setTimeout(typeWriter, speed);
+      dialogboxSound.play();
     }
   }
+);
+$("#dialog").dialog("close");
 
-  // Set up response for user... considered Agree button
-  function positiveA() {
-    //console.log("clicked");
-    var clickButton = document.getElementById("myClickY");
-    var text = document.getElementById("text");
 
-    //console.log(data[earthAnswer].answer);
-    speakAnswer(data[earthAnswer].answer);
-    currentStamp = "assets/images/"+data[questionNumber].stamp;
-    stampContainer.src = currentStamp;
-    $("#draggableImageContainer").css({ display:'block', zIndex: 1});
+// Agree (Y) and Disagree (N) buttons are clickable
+let clickButtonY = document.getElementById("myClickY");
+clickButtonY.addEventListener("click",positiveA);
+let clickButtonN = document.getElementById("myClickN");
+clickButtonN.addEventListener("click",negativeA);
+clickButtonY.style.display = "none";
+clickButtonN.style.display = "none";
 
-    if(data[questionNumber].dialogboxtext===""){
-      console.log("hide")
-      $("#dialog").dialog("close");
-    }
-    else {
-      console.log(document.getElementById("dialogLink"));
-      $("#dialog").dialog("open");
-      document.getElementById("dialogDirection").innerHTML=data[questionNumber].dialogboxtext;
-      document.getElementById("dialogLink").setAttribute("href",data[questionNumber].dialogboxlink);
-    }
+// Contains the stamp for each image
+let stampContainer = document.getElementById("stampImage");
+
+// function to play video and sound with a click for the introduction
+function gameStart(){
+  if(video.paused){
+    video.play();
+    video.loop = true;
+  } else {
+    video.pause();
   }
+  btn.style.display = "none";
+  typebutton.style.display = "block";
+  clickButtonY.style.display = "block";
+  clickButtonN.style.display = "block";
+}
 
-  // Set up response for user... considered Disagree button
-  function negativeA() {
-    var clickButton = document.getElementById("myClickN");
-    var text = document.getElementById("text");
-
-
-    //console.log(data[earthAnswer].answer);
-    speakAnswer(data[earthAnswer].answer);
-    currentStamp = "assets/images/"+data[questionNumber].stamp;
-    stampContainer.src = currentStamp;
-    $("#draggableImageContainer").css({ display:'block', zIndex: 1});
-
-    if(data[questionNumber].dialogboxtext===""){
-      console.log("hide")
-      $("#dialog").dialog("close");
-    }
-    else {
-      console.log(document.getElementById("dialogLink"));
-      $("#dialog").dialog("open");
-      document.getElementById("dialogDirection").innerHTML=data[questionNumber].dialogboxtext;
-      document.getElementById("dialogLink").setAttribute("href",data[questionNumber].dialogboxlink);
-    }
+// Earth will ask questions using type writer animation.
+function typeWriter() {
+  typebutton.style.display = "none";
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
   }
+}
 
-  // Handle draggable when user mouses over game shapes to drag it and make it draggable
-  // code - parts of Beach Party by Pippin Barr but altered code
-  $('#content').on('mouseover', '.masterImage', function() {
-    $(this).draggable({
-      // The start property takes a function that is called when dragging starts
-      start: function () {
-        //console.log (this);
-      },
-    });
+// Set up response for user... considered Agree button
+function positiveA() {
+  var clickButton = document.getElementById("myClickY");
+  var text = document.getElementById("text");
+
+  // Engages the responsive voice to answer
+  speakAnswer(data[earthAnswer].answer);
+  currentStamp = "assets/images/"+data[questionNumber].stamp;
+  stampContainer.src = currentStamp;
+  $("#draggableImageContainer").css({ display:'block', zIndex: 1});
+  //test to see if dialog box is being called
+  if(data[questionNumber].dialogboxtext===""){
+    console.log("hide")
+    $("#dialog").dialog("close");
+  }
+  else {
+    console.log(document.getElementById("dialogLink"));
+    $("#dialog").dialog("open");
+    document.getElementById("dialogDirection").innerHTML=data[questionNumber].dialogboxtext;
+    document.getElementById("dialogLink").setAttribute("href",data[questionNumber].dialogboxlink);
+  }
+}
+
+// Set up response for user... considered Disagree button
+function negativeA() {
+  var clickButton = document.getElementById("myClickN");
+  var text = document.getElementById("text");
+
+  // Engages the responsive voice to answer
+  speakAnswer(data[earthAnswer].answer);
+  currentStamp = "assets/images/"+data[questionNumber].stamp;
+  stampContainer.src = currentStamp;
+  $("#draggableImageContainer").css({ display:'block', zIndex: 1});
+  //test to see if dialog box is being called
+  if(data[questionNumber].dialogboxtext===""){
+    console.log("hide")
+    $("#dialog").dialog("close");
+  }
+  else {
+    console.log(document.getElementById("dialogLink"));
+    $("#dialog").dialog("open");
+    document.getElementById("dialogDirection").innerHTML=data[questionNumber].dialogboxtext;
+    document.getElementById("dialogLink").setAttribute("href",data[questionNumber].dialogboxlink);
+  }
+}
+
+// Handle draggable when user mouses over game shapes to drag it and make it draggable
+// code - parts of Beach Party by Pippin Barr but altered code
+$('#content').on('mouseover', '.masterImage', function() {
+  $(this).draggable({
+    // The start property takes a function that is called when dragging starts
+    start: function () {
+    },
   });
+});
 
-  $('#content').on('mouseup', '.masterImage', function () {
-    //console.log ("mouseup");
-    //
-    let previousPos = $(this).position();
-    //console.log(previousPos);
+$('#content').on('mouseup', '.masterImage', function () {
+  // Checks for previous stamp image position
+  let previousPos = $(this).position();
 
+  //resets for the next question
+  resetNextQuestion(previousPos);
+  $('#draggableImageContainer').css({bottom: 0, left: 0, display:'none'});
+});
 
-    //resets for the next question
-    resetNextQuestion(previousPos);
-    $('#draggableImageContainer').css({bottom: 0, left: 0, display:'none'});
-  });
+// Calculates currrent question and then resets for the next question. Checks for previous stamp position
+function resetNextQuestion(previousPos) {
+  i=0;
+  let img = $('<img />').attr({
+    'src': currentStamp,
+  }).appendTo('#content').css({top: previousPos.top, left: previousPos.left, position:'absolute'});
+  questionNumber++;
+  txt = data[questionNumber].question;
+  document.getElementById("demo").innerHTML ="";
+  typeWriter();
+}
 
-
-  // Calculates currrent question and then resets for the next question
-  function resetNextQuestion(previousPos) {
-    //console.log( "in reset"+previousPos.top)
-    i=0;
-    let img = $('<img />').attr({
-      'src': currentStamp,
-    }).appendTo('#content').css({top: previousPos.top, left: previousPos.left, position:'absolute'});
-
-    questionNumber++;
-    //gameOver();
-    txt = data[questionNumber].question;
-    document.getElementById("demo").innerHTML ="";
-    typeWriter();
-  }
-
-  // Calls Earth voice to speak some truth about climate change with a fancy accent
-  function speakAnswer(earthVoice) {
-    responsiveVoice.speak(earthVoice,'UK English Male');
-    earthAnswer++;
-  }
-
+// Calls Earth voice to speak some truth about climate change with a fancy accent
+function speakAnswer(earthVoice) {
+  responsiveVoice.speak(earthVoice,'UK English Male');
+  earthAnswer++;
+}
 
 });
