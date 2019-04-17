@@ -22,60 +22,54 @@
   <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
-<!-- My script(s) -->
+  <!-- My script(s) -->
   <script src="js/script.js"></script>
 
 </head>
 
 <body>
   <!-- HTML would go here if needed. -->
+  <section id="content">
+    <!-- buttons for Agree or Disagree. -->
+    <button class="checkAnswerY" id="myClickY">Agree</button>
+    <button class="checkAnswerN" id="myClickN">Disagree</button>
+
+    <!-- Set up for video background -->
+    <div class="videoContainer">
+      <video width="320" height="240" id="myVideo">
+        <source src="assets/video/bgvideo.mp4" type="video/mp4">
+        <source src="movie.ogg" type="video/ogg">
+      </video>
+    </div>
+
+        <!-- Introduction button to start video -->
+    <section id="intro">
+      <div class="innerContent">
+        <h1>EARTH time!</h1>
+        <p>click on the EARTH ↓↓↓ </p>
+        <img id = "clickMe" src="assets/images/earth.png" alt="">
+      </div>
+    </section>
+
+        <!-- Button that initiates questions from Earth-->
+    <div class ="questionEarth">
+      <button id = "typebutton"> But first, Agree or Disagree to get a stamp... and click me! </button>
+      <p id="demo"></p>
+    </div>
 
 
-<section id="content">
-
-<button class="checkAnswerY" id="myClickY">Agree</button>
-
-<button class="checkAnswerN" id="myClickN">Disagree</button>
+    <div class="masterImage stamp"  id ="draggableImageContainer">
+      <img id = "stampImage" src="" alt="">
+    </div>
 
 
+    <div class="masterDialog" id="dialog" title="Place Your Stamp...">
+      <p id="dialogDirection">Check out this link</p> <a id="dialogLink" href="link" target="_blank">Click This Link for a Surprise!!!!!!!! and don't forget to come back :) </a>
+    </div>
 
-  <!-- Set up for video background -->
-<div class="videoContainer">
-  <video width="320" height="240" id="myVideo">
-		<source src="assets/video/bgvideo.mp4" type="video/mp4">
-		<source src="movie.ogg" type="video/ogg">
-	</video>
-  </div>
-
-  <!-- Introduction button to start video -->
-  <section id="intro">
-    <div class="innerContent">
-			<h1>EARTH time!</h1>
-			<p>click on the EARTH ↓↓↓ </p>
-			<img id = "clickMe" src="assets/images/earth.png" alt="">
-		</div>
   </section>
 
-  <!-- Button that initiates questions from Earth-->
-  <div class ="questionEarth">
-    <button id = "typebutton"> But first, Agree or Disagree to get a stamp... and click me! </button>
-    <p id="demo"></p>
-  </div>
 
+    </body>
 
-  <div class="masterImage stamp"  id ="draggableImageContainer">
-  	<img id = "stampImage" src="" alt="">
-  </div>
-
-
-  <div class="masterDialog" id="dialog" title="Place Your Stamp...">
-  <p id="dialogDirection">Check out this link</p> <a id="dialogLink" href="link" target="_blank">Click This Link for a Surprise!!!!!!!! and don't forget to come back :) </a>
-  </div>
-
-</section>
-
-
-
-</body>
-
-</html>
+    </html>

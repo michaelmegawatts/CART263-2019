@@ -13,6 +13,7 @@ author, and this description to match your project!
 
 
 const data = []
+const dialogboxSounds = new Audio('assets/sounds/birds.mp3');
 
 let zIndex = 0;
 
@@ -34,10 +35,11 @@ let dialogBox = [
   "https://www.youtube.com/watch?v=26qzmw_xG58",
   "Do you actually know how to recycle? Just watch!",
   "https://www.youtube.com/watch?v=b7GMpjx2jDQ",
-
+  "Canada's carbon tax: A guide to who’s affected, who pays what and who opposes it",
+  "https://www.theglobeandmail.com/canada/article-canadas-carbon-tax-a-guide/",
 ];
 
-// Class for series of questions
+// Class for series of questions with answers, dialog boxes, links, and stamps
 class EarthQuestion {
   constructor(question,answer,dialogboxtext,dialogboxlink,stamp) {
     this.question = question;
@@ -55,6 +57,10 @@ class EarthQuestion {
 }
 
 data.push(new EarthQuestion("Are you from planet Earth?","Best planet of the universe!","","","mountain.png"));
+data.push(new EarthQuestion("Have you ever played in nature?","try and think of all those wonderful moments in nature","","","lakelouise.png"));
+data.push(new EarthQuestion("Have you ever climbed a tree?","Trees are not just Christmas wrapping paper. They feed us oxygen","","","tree.png"));
+data.push(new EarthQuestion("Do you like butterflies?","Butterflies go through a life cycle. A butterfly has four stages in its life cycle.A butterfly becoming an adult is called metamorphosis. The life cycle process can take a month to year.","","","butterfly.png"));
+data.push(new EarthQuestion("Drinking fresh water is really good for your health","But not water from plastic bottles","","","freshwater.png"));
 data.push(new EarthQuestion("Do you think Earth is a nice place?","even in the freezing winter, huh?",dialogBox[0],dialogBox[1],"spaceshiphouse.png"));
 data.push(new EarthQuestion("Is it important to have clean air?","Clean air is fundamental to healthy human life","","","mask.png"));
 data.push(new EarthQuestion("Is the earth flat?","phewf, you may continue to exist!",dialogBox[2],dialogBox[3],"flatearth.jpg"));
@@ -73,6 +79,9 @@ data.push(new EarthQuestion("Are cow farts causing climate change?","Yes. Animal
 data.push(new EarthQuestion("Is it too late to prevent climate change?","Humans have caused major climate changes to happen already, and we have set in motion more changes still. Even if we stopped emitting greenhouse gases today, global warming would continue to happen for at least several more decades, if not centuries.","","","rabbit.png"));
 data.push(new EarthQuestion("Are polar bears and other animals at risk because of global warming?","Because of melting sea ice, it is likely that more polar bears will soon starve, warns a new study that discovered the large carnivores need to eat 60 percent more than anyone had realized","","","polarbear.png"));
 data.push(new EarthQuestion("Does recycling help climate change?","Recycling helps reduce greenhouse gas emissions by reducing energy consumption",dialogBox[14],dialogBox[15],"recycle.png"));
+data.push(new EarthQuestion("Did dinosaurs cause climate change?","Well, yes! Like modern-day ruminants, giant plant-eating dinosaurs likely had microbes in their guts that gave off large amounts of methane, a potent greenhouse gas even more effective at trapping heat than carbon dioxide","","","dinosaur.png"));
+data.push(new EarthQuestion("Will a carbon tax benefit society and the environment?","The idea behind a carbon tax is to make companies pay for greenhouse gas emissions that they ordinarily pump into the atmosphere for free",dialogBox[16],dialogBox[17],"carbontax.png"));
+data.push(new EarthQuestion("The earth will be uninhabitable in 50 years","Wrong. We don't actually know but it doesn't mean we should ignore the consequences of our actions. There is only one Earth, and Mars isn't as sexy as Earth!","","","tomhardy.png"));
 
 // Set up for introduction to experience. The button click will engage video, soundscape
 // and first question in the series
@@ -95,14 +104,16 @@ $(document).ready(function() {
   btnImg.addEventListener("click",gameStart);
 
   let dialogBoxShow = data[0].dialogbox;
-    $("#dialog").dialog();
-    $("#dialog").dialog("close");
+  $("#dialog").dialog();
+  $("#dialog").dialog("close");
 
-  // Agree and disagree buttons
-   let clickButtonY = document.getElementById("myClickY");
-   clickButtonY.addEventListener("click",positiveA);
-   let clickButtonN = document.getElementById("myClickN");
-   clickButtonN.addEventListener("click",negativeA);
+  // Agree (Y) and Disagree (N) buttons are clickable
+  let clickButtonY = document.getElementById("myClickY");
+  clickButtonY.addEventListener("click",positiveA);
+  let clickButtonN = document.getElementById("myClickN");
+  clickButtonN.addEventListener("click",negativeA);
+  clickButtonY.style.display = "none";
+  clickButtonN.style.display = "none";
 
   // Contains the stamp for each image
   let stampContainer = document.getElementById("stampImage");
@@ -120,7 +131,8 @@ $(document).ready(function() {
     }
     btn.style.display = "none";
     typebutton.style.display = "block";
-    //dialogBoxShow.style.display = "none";
+    clickButtonY.style.display = "block";
+    clickButtonN.style.display = "block";
   }
 
   // Earth will ask questions using type writer animation.
@@ -133,7 +145,7 @@ $(document).ready(function() {
     }
   }
 
-  // Set up response for user... considered "positive" or Agree as a checkbox
+  // Set up response for user... considered Agree button
   function positiveA() {
     //console.log("clicked");
     var clickButton = document.getElementById("myClickY");
@@ -145,22 +157,19 @@ $(document).ready(function() {
     stampContainer.src = currentStamp;
     $("#draggableImageContainer").css({ display:'block', zIndex: 1});
 
-
     if(data[questionNumber].dialogboxtext===""){
       console.log("hide")
       $("#dialog").dialog("close");
     }
     else {
       console.log(document.getElementById("dialogLink"));
-          $("#dialog").dialog("open");
-          document.getElementById("dialogDirection").innerHTML=data[questionNumber].dialogboxtext;
-          document.getElementById("dialogLink").setAttribute("href",data[questionNumber].dialogboxlink);
-          //  $("#dialog").dialog();
+      $("#dialog").dialog("open");
+      document.getElementById("dialogDirection").innerHTML=data[questionNumber].dialogboxtext;
+      document.getElementById("dialogLink").setAttribute("href",data[questionNumber].dialogboxlink);
     }
-
   }
 
-  // Set up response for user... considered "negative" or Disagree as a checkbox
+  // Set up response for user... considered Disagree button
   function negativeA() {
     var clickButton = document.getElementById("myClickN");
     var text = document.getElementById("text");
@@ -171,9 +180,20 @@ $(document).ready(function() {
     currentStamp = "assets/images/"+data[questionNumber].stamp;
     stampContainer.src = currentStamp;
     $("#draggableImageContainer").css({ display:'block', zIndex: 1});
+
+    if(data[questionNumber].dialogboxtext===""){
+      console.log("hide")
+      $("#dialog").dialog("close");
+    }
+    else {
+      console.log(document.getElementById("dialogLink"));
+      $("#dialog").dialog("open");
+      document.getElementById("dialogDirection").innerHTML=data[questionNumber].dialogboxtext;
+      document.getElementById("dialogLink").setAttribute("href",data[questionNumber].dialogboxlink);
+    }
   }
 
-  // Handle when user mouses over game shapes to drag it and make it draggable
+  // Handle draggable when user mouses over game shapes to drag it and make it draggable
   // code - parts of Beach Party by Pippin Barr but altered code
   $('#content').on('mouseover', '.masterImage', function() {
     $(this).draggable({
@@ -212,19 +232,11 @@ $(document).ready(function() {
     typeWriter();
   }
 
+  // Calls Earth voice to speak some truth about climate change with a fancy accent
   function speakAnswer(earthVoice) {
     responsiveVoice.speak(earthVoice,'UK English Male');
     earthAnswer++;
-
   }
 
-  // $( function() {
-  //   $("#dialog").dialog();
-  // } );
-
-
-  // <div id="dialog" title="Earth Now by Nasa">
-  // <p>Check out this link <a href="https://climate.nasa.gov/earth-now/?vs_name=visible_earth&dataset_name=viirsToday&group_id=53" target="_blank">link text</a></p>
-  // </div>
 
 });
