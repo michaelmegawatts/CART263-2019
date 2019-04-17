@@ -13,7 +13,6 @@ author, and this description to match your project!
 
 
 const data = []
-const dialogboxSounds = new Audio('assets/sounds/birds.mp3');
 
 let zIndex = 0;
 
@@ -38,6 +37,8 @@ let dialogBox = [
   "Canada's carbon tax: A guide to who’s affected, who pays what and who opposes it",
   "https://www.theglobeandmail.com/canada/article-canadas-carbon-tax-a-guide/",
 ];
+
+let dialogboxSound = new Audio("assets/sounds/birds.mp3");
 
 // Class for series of questions with answers, dialog boxes, links, and stamps
 class EarthQuestion {
@@ -104,8 +105,14 @@ $(document).ready(function() {
   btnImg.addEventListener("click",gameStart);
 
   let dialogBoxShow = data[0].dialogbox;
-  $("#dialog").dialog();
+  $("#dialog").dialog(
+    { close: function() {
+        dialogboxSound.play();
+        }
+      }
+    );
   $("#dialog").dialog("close");
+
 
   // Agree (Y) and Disagree (N) buttons are clickable
   let clickButtonY = document.getElementById("myClickY");
@@ -123,9 +130,7 @@ $(document).ready(function() {
   function gameStart(){
     if(video.paused){
       video.play();
-      //soundscape.play();
       video.loop = true;
-      //soundscape.loop = true;
     } else {
       video.pause();
     }
