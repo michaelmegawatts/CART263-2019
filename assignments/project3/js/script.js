@@ -10,6 +10,9 @@ Fancy background Video: edited by Michael Watts
 
 Altered code from (line 228): https://pippinbarr.github.io/cart263-2019/examples/jqueryui/beach-party/
 
+uses: ResponsiveVoice
+https:responsivevoice.org
+
 The experience is to bring light to concerns around climate change.
 A collage game that asks you to Agree or Disagree on questions and statements.
 Each response gives a stamp to paste, followed by some words of wisdom, or sarcasm.
