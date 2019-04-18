@@ -13,6 +13,8 @@ Project description and credits
 Earth Video: edited by Michael Watts
 source: https://pixabay.com/videos/earth-globe-sea-trenches-9183/
 
+bird sound: http://soundbible.com/2180-Meadowlark.html
+
 sources: NASA - https://climate.nasa.gov/faq/
 https://www.earthday.org/climate-change-quiz/
 National Geographic - https://news.nationalgeographic.com/2018/02/polar-bears-starve-melting-sea-ice-global-warming-study-beaufort-sea-environment/
