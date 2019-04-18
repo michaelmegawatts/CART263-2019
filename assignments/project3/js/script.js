@@ -21,7 +21,6 @@ Occasionally a surprise dialog box appears, with links to informative websites, 
 const data = []
 // Property for the location of stamp Images
 let zIndex = 0;
-
 //set up for when actions need to be activated or turned off
 let voiceDone = false
 let imageStamped = false
@@ -29,7 +28,6 @@ let dialogboxDone = false
 //set up for buttons to be activated or turned off
 let agreeButton = false
 let disagreeButton = false
-
 // An array for video and website links in dialog boxes that will appear
 let dialogBox = [
   "Look at me now!",
