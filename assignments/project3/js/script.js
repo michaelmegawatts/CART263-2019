@@ -2,8 +2,13 @@
 
 /*****************
 
-Title of Project: Earth Collage
-Michael
+Title of Project: SOS - Earth
+Michael Watts
+
+credits: README has complete list of credits
+Fancy background Video: edited by Michael Watts
+
+Altered code from (line 228): https://pippinbarr.github.io/cart263-2019/examples/jqueryui/beach-party/
 
 The experience is to bring light to concerns around climate change.
 A collage game that asks you to Agree or Disagree on questions and statements.
@@ -76,7 +81,7 @@ data.push(new EarthQuestion("Do you think Earth is a nice place?","even in the f
 data.push(new EarthQuestion("Is it important to have clean air?","Clean air is fundamental to healthy human life","","","mask.png"));
 data.push(new EarthQuestion("Is the earth flat?","phewf, you may continue to exist!",dialogBox[2],dialogBox[3],"flatearth.jpg"));
 data.push(new EarthQuestion("Do humans cause climate change?","you bet!","","","adameve.png"));
-data.push(new EarthQuestion("Only Liberals, Democrats, and tree huggers believe in climate change","Who knows. But sadly many conservatives and republicans deny climate change. Ask the Trump and Andrew Scheer","","","treehugger.png"));
+data.push(new EarthQuestion("Only Liberals, Democrats, and tree huggers believe in climate change","Who knows. But sadly many conservatives and republicans deny climate change","","","treehugger.png"));
 data.push(new EarthQuestion("Is climate change a hoax?","The denial of climate change is not just ignorant, but malign and evil because it denies the human rights of the most vulnerable people on the planet",dialogBox[4],dialogBox[5],"denial.jpg"));
 data.push(new EarthQuestion("Do you have pets?","So do I, but not cats. I don't like cats",dialogBox[6],dialogBox[7],"puppy.png"));
 data.push(new EarthQuestion("Do scientists agree on climate change?","Yes, the vast majority of actively publishing climate scientists 97 percent agree that humans are causing global warming and climate change.","","","earth.png"));
@@ -93,7 +98,7 @@ data.push(new EarthQuestion("Does recycling help climate change?","Recycling hel
 data.push(new EarthQuestion("Did dinosaurs cause climate change?","Well, yes! Like modern-day ruminants, giant plant-eating dinosaurs likely had microbes in their guts that gave off large amounts of methane, a potent greenhouse gas even more effective at trapping heat than carbon dioxide","","","dinosaur.png"));
 data.push(new EarthQuestion("Will a carbon tax benefit society and the environment?","The idea behind a carbon tax is to make companies pay for greenhouse gas emissions that they ordinarily pump into the atmosphere for free",dialogBox[16],dialogBox[17],"carbontax.png"));
 data.push(new EarthQuestion("The earth will be uninhabitable in 50 years","Wrong. We don't actually know but it doesn't mean we should ignore the consequences of our actions. There is only one Earth, and Mars isn't as sexy as Earth!","","","tomhardy.png"));
-data.push(new EarthQuestion("Now how do you feel about Earth?","someone kill that stupid bird a a a a a a apocalypse shit fuck crap die cow bastard ha ha ha ha ha ha ha hilarious apocalypse shit fuck crap die cow bastard ha ha ha ha ha ha ha hilarious apocalypse shit fuck crap die cow bastard ha ha ha ha ha ha ha hilarious apocalypse ","","","gameover.png"));
+data.push(new EarthQuestion("Now how do you feel about Earth?","fuck fuck someone kill that stupid bird a a a a a a apocalypse shit fuck crap die cow bastard ha ha ha ha ha ha ha hilarious apocalypse shit fuck crap die cow bastard ha ha ha ha ha ha ha hilarious apocalypse shit fuck crap die cow bastard ha ha ha ha ha ha ha hilarious apocalypse ","","","gameover.png"));
 
 // Set up for introduction to experience. The button click will engage video, soundscape
 // and first question in the series
@@ -169,25 +174,25 @@ function positiveA() {
     agreeButton = true;
     disagreeButton = true;
 
-  var clickButton = document.getElementById("myClickY");
-  var text = document.getElementById("text");
+    var clickButton = document.getElementById("myClickY");
+    var text = document.getElementById("text");
 
-  // Engages the responsive voice to answer
-  speakAnswer(data[earthAnswer].answer);
-  currentStamp = "assets/images/"+data[questionNumber].stamp;
-  stampContainer.src = currentStamp;
-  $("#draggableImageContainer").css({ display:'block', zIndex: 1});
-  //test to see if dialog box is being called
-  if(data[questionNumber].dialogboxtext===""){
-    dialogboxDone = true
-    console.log("hide")
-    $("#dialog").dialog("close");
-  }
-  else {
-    console.log(document.getElementById("dialogLink"));
-    $("#dialog").dialog("open");
-    document.getElementById("dialogDirection").innerHTML=data[questionNumber].dialogboxtext;
-    document.getElementById("dialogLink").setAttribute("href",data[questionNumber].dialogboxlink);
+    // Engages the responsive voice to answer
+    speakAnswer(data[earthAnswer].answer);
+    currentStamp = "assets/images/"+data[questionNumber].stamp;
+    stampContainer.src = currentStamp;
+    $("#draggableImageContainer").css({ display:'block', zIndex: 1});
+    //test to see if dialog box is being called
+    if(data[questionNumber].dialogboxtext===""){
+      dialogboxDone = true
+      console.log("hide")
+      $("#dialog").dialog("close");
+    }
+    else {
+      console.log(document.getElementById("dialogLink"));
+      $("#dialog").dialog("open");
+      document.getElementById("dialogDirection").innerHTML=data[questionNumber].dialogboxtext;
+      document.getElementById("dialogLink").setAttribute("href",data[questionNumber].dialogboxlink);
     }
   }
 }
@@ -196,25 +201,25 @@ function negativeA() {
   if (disagreeButton === false) {
     disagreeButton = true;
     agreeButton = true;
-  var clickButton = document.getElementById("myClickN");
-  var text = document.getElementById("text");
+    var clickButton = document.getElementById("myClickN");
+    var text = document.getElementById("text");
 
-  // Engages the responsive voice to answer
-  speakAnswer(data[earthAnswer].answer);
-  currentStamp = "assets/images/"+data[questionNumber].stamp;
-  stampContainer.src = currentStamp;
-  $("#draggableImageContainer").css({ display:'block', zIndex: 1});
-  //test to see if dialog box is being called
-  if(data[questionNumber].dialogboxtext===""){
-    dialogboxDone = true
-    console.log("hide")
-    $("#dialog").dialog("close");
-  }
-  else {
-    console.log(document.getElementById("dialogLink"));
-    $("#dialog").dialog("open");
-    document.getElementById("dialogDirection").innerHTML=data[questionNumber].dialogboxtext;
-    document.getElementById("dialogLink").setAttribute("href",data[questionNumber].dialogboxlink);
+    // Engages the responsive voice to answer
+    speakAnswer(data[earthAnswer].answer);
+    currentStamp = "assets/images/"+data[questionNumber].stamp;
+    stampContainer.src = currentStamp;
+    $("#draggableImageContainer").css({ display:'block', zIndex: 1});
+    //test to see if dialog box is being called
+    if(data[questionNumber].dialogboxtext===""){
+      dialogboxDone = true
+      console.log("hide")
+      $("#dialog").dialog("close");
+    }
+    else {
+      console.log(document.getElementById("dialogLink"));
+      $("#dialog").dialog("open");
+      document.getElementById("dialogDirection").innerHTML=data[questionNumber].dialogboxtext;
+      document.getElementById("dialogLink").setAttribute("href",data[questionNumber].dialogboxlink);
     }
   }
 }
@@ -230,7 +235,7 @@ $('#content').on('mouseover', '.masterImage', function() {
 
 $('#content').on('mouseup', '.masterImage', function () {
   // Checks for previous stamp image position
-let previousPos = $(this).position();
+  let previousPos = $(this).position();
   // checks for when image is stamped
   imageStamped=true;
 
@@ -249,9 +254,6 @@ function resetNextQuestion() {
   agreeButton = false
   disagreeButton = false
   i=0;
-  /*let img = $('<img />').attr({
-    'src': currentStamp,
-  }).appendTo('#content').css({top: previousPos.top, left: previousPos.left, position:'absolute'});*/
   questionNumber++;
   txt = data[questionNumber].question;
   document.getElementById("demo").innerHTML ="";
@@ -266,14 +268,14 @@ function speakAnswer(earthVoice) {
     voiceDone=true;
   }
 });
-  earthAnswer++;
+    earthAnswer++;
 }
 
 // Checks if all actions are complet before going to next question
 setInterval(function(){
-if (voiceDone === true && imageStamped === true && dialogboxDone === true) {
-  console.log("change question")
-  resetNextQuestion();
+  if (voiceDone === true && imageStamped === true && dialogboxDone === true) {
+    console.log("change question")
+    resetNextQuestion();
   }
 }, 10);
 

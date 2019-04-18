@@ -1,3 +1,13 @@
+CART 263-2019
+Project 3
+Title: SOS - Earth
+Michael Watts
+
+SOS – Earth is an interactive experience aiming to highlight the importance of basic knowledge around climate change. Yes, it’s a cry for help, and a cry for people to listen and get informed. Climate change is a very hot topic at the moment around the world and like any subject a divisive one with contrasting opinions. Sadly, much of the division is caused by ignorance, misinformation and conspiracies. I’ll also add stupidity because this just happens to be part of the mess. I chose this as a topic not only because we are seeing it in the news on a daily basis, but because I want to include an aspect of environmental and body awareness to my projects. I personally feel it gives myself a purpose in creating the experience and I can also get informed on the subject.
+
+I wanted to take this political and environmental stage to create a dialog with Earth, similar to my previous project, Conversation with Gawd. This time, I am giving the experience more of a constructive approach for the user so that they can be informed in a playful manner, while offering a look at some of the information out there including the myths and deniers of climate change. This experience offers the user a creative outlet to be informed about climate change. At first it starts off like a kid’s game, but then it transforms into some hard truths, facts, but always with a twist of humour. Many of my projects revolve around creating visual collages and I felt this to be an opportunity for a visual landscape to be created in a unique way by the user. Various images related to the questions were gathered from the web, and when the user responds they are given a stamp to place somewhere on the page. Because I am not an expert on climate change and there is so much pertinent information out there on the subject, the user is guided to external links for sites like Nasa where they can see the different aspects of global warming that affect the planet. Other links lead to videos about flat earthers, or articles with clear facts, and even silly videos of people getting sun burns. Some are completely absurd and unrelated but I wanted to show how easy it is to get distracted from the subject. Added to this is the voice of Earth that responds to the user’s agreements or disagreements with smart ass remarks or facts of life. All the information, sounds, and visuals can seem a bit overwhelming, but this is the state of the conversation we get through the web and media. Finally, in the end Earth has a mental breakdown and it is Game Over Earth. Wouldn’t you if you were Earth?
+
+
 Project description and credits
 
 Earth Video: edited by Michael Watts
